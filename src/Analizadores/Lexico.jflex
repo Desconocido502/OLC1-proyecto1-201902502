@@ -94,7 +94,7 @@ id_conjuntoER="{" [a-zA-Z0-9_]+ "}"
     return new Symbol(sym.allave, yycolumn, yyline, yytext());
 }
 {id_conjuntoER} {
-    System.out.println("Se reconocio el id conjunto EX, lexema: " + yytext());
+    System.out.println("Se reconocio el id conjunto ER, lexema: " + yytext());
     return new Symbol(sym.id_conjuntoER, yycolumn, yyline, yytext());
 }
 {nombres} {

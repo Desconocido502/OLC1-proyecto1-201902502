@@ -3,7 +3,7 @@ import java_cup.runtime.*;
 import Main.*;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.ioPrintWriter;
+import java.io.PrintWriter;
 
 parser code
 {:
@@ -43,7 +43,7 @@ precedence left or, concatenacion;
 
 start with INICIO;
 
-INICIO ::= SENTENCIAS{: :};
+INICIO ::= SENTENCIAS;
 
 SENTENCIAS ::= SENTENCIAS S
             |S
@@ -59,20 +59,20 @@ PART ::= CONJUNTOS
         |ERG
         ;
 
-ERG ::= nombres:a resta mayor EXPRESIONES:valor {: :} pcoma;
+ERG ::= nombres resta mayor EXPRESIONES pcoma;
 
-EXPRESIONES ::= EXPRESIONES NOTACIONER:a {: :}
-                | NOTACIONER:a {: :}
+EXPRESIONES ::= EXPRESIONES NOTACIONER
+                | NOTACIONER
                 ;
 
-NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {: :}
-                |concatenacion NOTACIONER:a NOTACIONER:b {: :}
-                |suma NOTACIONER:a {: :}
-                |asterisco NOTACIONER:a {: :}
-                |interrogacion NOTACIONER:a {: :}
-                |id_conjuntoER:val {: :}
-                |especial_conjER:val {: :}
-                |c_conjuntoER:val {: :}
+NOTACIONER ::= or NOTACIONER NOTACIONER 
+                |concatenacion NOTACIONER NOTACIONER
+                |suma NOTACIONER
+                |asterisco NOTACIONER
+                |interrogacion NOTACIONER
+                |id_conjuntoER
+                |especial_conjER
+                |c_conjuntoER
                 |error asterisco
                 |error concatenacion
                 |error c_conjuntoER
@@ -86,9 +86,9 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {: :}
 REVISIONES ::= REVISIONES REV
                 |REV;
 
-REV ::= nombres:a dospuntos cadenarevi2:b {: :}
+REV ::= nombres dospuntos cadenarevi2
         |error pcoma;
 
-CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj:b {: :} pcoma
-            | id_conj dospuntos nombres:a resta mayor notacionj2:b {: :} pcoma
+CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj pcoma
+            | id_conj dospuntos nombres:a resta mayor notacionj2 pcoma
             |error pcoma;
