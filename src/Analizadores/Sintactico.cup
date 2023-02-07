@@ -1,1 +1,94 @@
+package Analizadores;
+import java_cup.runtime.*;
+import Main.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.ioPrintWriter;
 
+parser code
+{:
+
+    public static int contID = 1;
+    public static int IDS = 1;
+    public static int idInicio = 0;
+    public static int idFinal = 1;
+    //public static Nodo Root;
+
+    //                                   Errores Sintacticos
+    public void syntax_error(Symbol s){
+        System.err.println("Error en la Línea " + (s.right+1) +" Columna "+(s.left+1)+ ". Identificador "+s.value + " no reconocido. Se ha recuperado del error." );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
+        System.err.println("Error en la Línea " + (s.right+1)+ " Columna "+(s.left+1)+". Identificador " +s.value + " no reconocido.");
+    }
+
+:}
+
+action code {:
+    String temp = "";
+    String temp2 = "";
+    String temp3 = "";
+:}
+
+terminal String allave, cllave, dospuntos, nombres, mayor, resta, id_conj, notacionj, notacionj2, pcoma, porcentajes;
+terminal String cadenarevi2, id_conjuntoER, c_conjuntoER, especial_conjER, suma, concatenacion, interrogacion, asterisco, or;
+
+non terminal String INICIO, SENTENCIAS, S, CONJUNTOS, ERG, REVISIONES, REV, PRIMERAP, PART;
+
+non terminal Nodo EXPRESIONES, NOTACIONER;
+
+precedence left suma, asterisco, interrogacion;
+precedence left or, concatenacion;
+
+start with INICIO;
+
+INICIO ::= SENTENCIAS{: :};
+
+SENTENCIAS ::= SENTENCIAS S
+            |S
+            ;
+
+S ::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes REVISIONES cllave;
+
+PRIMERAP ::= PRIMERAP PART
+            |PART
+            ;
+
+PART ::= CONJUNTOS
+        |ERG
+        ;
+
+ERG ::= nombres:a resta mayor EXPRESIONES:valor {: :} pcoma;
+
+EXPRESIONES ::= EXPRESIONES NOTACIONER:a {: :}
+                | NOTACIONER:a {: :}
+                ;
+
+NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {: :}
+                |concatenacion NOTACIONER:a NOTACIONER:b {: :}
+                |suma NOTACIONER:a {: :}
+                |asterisco NOTACIONER:a {: :}
+                |interrogacion NOTACIONER:a {: :}
+                |id_conjuntoER:val {: :}
+                |especial_conjER:val {: :}
+                |c_conjuntoER:val {: :}
+                |error asterisco
+                |error concatenacion
+                |error c_conjuntoER
+                |error especial_conjER
+                |error id_conjuntoER
+                |error interrogacion
+                |error suma
+                |error or
+                ;
+
+REVISIONES ::= REVISIONES REV
+                |REV;
+
+REV ::= nombres:a dospuntos cadenarevi2:b {: :}
+        |error pcoma;
+
+CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj:b {: :} pcoma
+            | id_conj dospuntos nombres:a resta mayor notacionj2:b {: :} pcoma
+            |error pcoma;
