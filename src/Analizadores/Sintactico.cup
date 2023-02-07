@@ -34,7 +34,7 @@ action code {:
 terminal String allave, cllave, dospuntos, nombres, mayor, resta, id_conj, notacionj, notacionj2, pcoma, porcentajes;
 terminal String cadenarevi2, id_conjuntoER, c_conjuntoER, especial_conjER, suma, concatenacion, interrogacion, asterisco, or;
 
-non terminal String INICIO, SENTENCIAS, S, CONJUNTOS, ERG, REVISIONES, REV, PRIMERAP, PART;
+non terminal String INICIO, SENTENCIAS, S, CONJUNTOS, ERG, COMPARACIONES, COMP, PRIMERAP, PART;
 
 non terminal Nodo EXPRESIONES, NOTACIONER;
 
@@ -49,7 +49,7 @@ SENTENCIAS ::= SENTENCIAS S
             |S
             ;
 
-S ::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes REVISIONES cllave;
+S ::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes COMPARACIONES cllave;
 
 PRIMERAP ::= PRIMERAP PART
             |PART
@@ -83,10 +83,10 @@ NOTACIONER ::= or NOTACIONER NOTACIONER
                 |error or
                 ;
 
-REVISIONES ::= REVISIONES REV
-                |REV;
+COMPARACIONES ::= COMPARACIONES COMP
+                |COMP;
 
-REV ::= nombres dospuntos cadenarevi2
+COMP ::= nombres dospuntos cadenarevi2
         |error pcoma;
 
 CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj pcoma

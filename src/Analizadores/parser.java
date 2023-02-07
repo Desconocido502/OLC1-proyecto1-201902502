@@ -68,13 +68,13 @@ public class parser extends java_cup.runtime.lr_parser {
     "\012\uffe1\016\uffe1\001\002\000\012\003\uffe0\007\uffe0\012" +
     "\uffe0\016\uffe0\001\002\000\012\003\ufffc\007\ufffc\012\ufffc" +
     "\016\ufffc\001\002\000\004\016\032\001\002\000\004\016" +
-    "\033\001\002\000\004\016\034\001\002\000\006\003\036" +
-    "\007\037\001\002\000\010\003\036\005\044\007\037\001" +
-    "\002\000\004\015\043\001\002\000\004\006\041\001\002" +
-    "\000\010\003\uffe4\005\uffe4\007\uffe4\001\002\000\004\017" +
-    "\042\001\002\000\010\003\uffe3\005\uffe3\007\uffe3\001\002" +
-    "\000\010\003\uffe2\005\uffe2\007\uffe2\001\002\000\006\002" +
+    "\033\001\002\000\004\016\034\001\002\000\006\003\035" +
+    "\007\036\001\002\000\004\015\045\001\002\000\004\006" +
+    "\043\001\002\000\010\003\035\005\041\007\036\001\002" +
+    "\000\010\003\uffe4\005\uffe4\007\uffe4\001\002\000\006\002" +
     "\ufffd\004\ufffd\001\002\000\010\003\uffe5\005\uffe5\007\uffe5" +
+    "\001\002\000\004\017\044\001\002\000\010\003\uffe3\005" +
+    "\uffe3\007\uffe3\001\002\000\010\003\uffe2\005\uffe2\007\uffe2" +
     "\001\002\000\004\010\047\001\002\000\024\003\055\020" +
     "\050\021\062\022\056\023\051\024\057\025\060\026\061" +
     "\027\054\001\002\000\026\003\ufff0\015\ufff0\020\ufff0\021" +
@@ -145,9 +145,9 @@ public class parser extends java_cup.runtime.lr_parser {
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\006\007\034\010\037" +
-    "\001\001\000\004\010\044\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\002\001\001\000\002\001\001\000\006\007\036\010\037" +
+    "\001\001\000\002\001\001\000\002\001\001\000\004\010" +
+    "\041\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\006\013\051\014\052\001\001" +
     "\000\002\001\001\000\004\014\102\001\001\000\004\014" +
@@ -289,7 +289,7 @@ class CUP$parser$actions {
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 4: // S ::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes REVISIONES cllave 
+          case 4: // S ::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes COMPARACIONES cllave 
             {
               String RESULT =null;
 
@@ -505,38 +505,38 @@ class CUP$parser$actions {
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 28: // REVISIONES ::= REVISIONES REV 
+          case 28: // COMPARACIONES ::= COMPARACIONES COMP 
             {
               String RESULT =null;
 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("REVISIONES",5, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("COMPARACIONES",5, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 29: // REVISIONES ::= REV 
+          case 29: // COMPARACIONES ::= COMP 
             {
               String RESULT =null;
 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("REVISIONES",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("COMPARACIONES",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 30: // REV ::= nombres dospuntos cadenarevi2 
+          case 30: // COMP ::= nombres dospuntos cadenarevi2 
             {
               String RESULT =null;
 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("REV",6, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("COMP",6, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 31: // REV ::= error pcoma 
+          case 31: // COMP ::= error pcoma 
             {
               String RESULT =null;
 
-              CUP$parser$result = parser.getSymbolFactory().newSymbol("REV",6, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
+              CUP$parser$result = parser.getSymbolFactory().newSymbol("COMP",6, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
