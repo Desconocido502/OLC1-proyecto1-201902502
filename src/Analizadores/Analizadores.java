@@ -19,7 +19,7 @@ public class Analizadores {
         try {
             String ruta = "src/Analizadores/";
             String opcFlex[] = {ruta + "Lexico.jflex", "-d", ruta};
-            JFlex.Main.generate(opcFlex);
+            jflex.Main.generate(opcFlex);
             
             String opcCUP[] = {"-destdir", ruta, "-parser", "parser",ruta + "Sintactico.cup"};
             java_cup.Main.main(opcCUP);
