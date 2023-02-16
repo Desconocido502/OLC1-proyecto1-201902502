@@ -54,8 +54,10 @@ cadenarevi2 = (\" [^\"]* \")
 id_conjuntoER="{" [a-zA-Z0-9_]+ "}"
 
 %{
-    public void AddError(String tipo, String lexema, int filla, int columna){
+    public void AddError(String tipo, String lexema, int fila, int columna){
         /*Aqui va la clase de Errores*/
+        Errores newError = new Errores(tipo, lexema, fila, columna);
+        Main.Reporte.listaErrores.add(newError);
     }
 %}
 
@@ -148,4 +150,5 @@ id_conjuntoER="{" [a-zA-Z0-9_]+ "}"
 
 . {
     System.err.println("Error lexico: "+ yytext()+ "Linea: "+(yyline)+ "columna: "+(yycolumn));
+    AddError("Error Lexico", yytext(), (yyline), (yycolumn));
 }

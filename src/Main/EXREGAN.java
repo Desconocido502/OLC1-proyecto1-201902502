@@ -1,6 +1,7 @@
 package Main;
 
 import java.io.StringReader;
+import Main.NodeType.Types;
 
 /**
  *
@@ -13,6 +14,7 @@ public class EXREGAN {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //System.out.println(Types.ROOT);
         String cadena = "{\n"
                 + "\n"
                 + "<!\n"

@@ -1,18 +1,76 @@
 package Analizadores;
 import java_cup.runtime.*;
 import Main.*;
+import Main.NodeType.Types;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 parser code
 {:
+    Container ct = new Container();
+    Comparacion comparacion = new Comparacion();
+    Reporte rep = new Reporte();
 
     public static int contID = 1;
     public static int IDS = 1;
     public static int idInicio = 0;
     public static int idFinal = 1;
-    //public static Nodo Root;
+    public static Nodo Root;
+
+    public static void graphTree(Nodo current, String name){
+        FileWriter file = null;
+        PrintWriter pw = null;
+
+        try{
+            file = new FileWriter("src/ARBOLES_201902502" + name + ".dot");
+            pw = new PrintWriter(file);
+            pw.println("digraph G{");
+            pw.println("rankdir=UD");
+            pw.println("node[shape=box]");
+            pw.println("concentrate=true");
+            pw.println(current.getInternalCode());
+            pw.println("}");
+        } catch (Exception e){  
+            System.err.println("error, no se realizo el archivo" + e);
+        } finally {
+            try{
+                if(file != null){
+                    file.close();
+                }
+            }catch(Exception e2){
+                e2.printStackTrace();
+            }
+        }
+
+        //para compilar el archivo dot y obtener la imagen
+        try {
+            //dirección doonde se ecnuentra el compilador de graphviz
+            String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+            //dirección del archivo dot
+            String fileInputPath = "src/ARBOLES_201902502/" + name + ".dot";
+            //dirección donde se creara la magen
+            String fileOutputPath = "src/ARBOLES_201902052/" + name + ".jpg";
+            //tipo de conversón
+            String tParam = "-Tjpg";
+            String tOParam = "-o";
+
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+
+            Runtime rt = Runtime.getRuntime();
+
+            rt.exec(cmd);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+        }
+    }
 
     //                                   Errores Sintacticos
     public void syntax_error(Symbol s){
@@ -43,7 +101,11 @@ precedence left or, concatenacion;
 
 start with INICIO;
 
-INICIO ::= SENTENCIAS;
+INICIO ::= SENTENCIAS{:
+    comparacion.comparar();
+    comparacion.printLists();
+    rep.ReporteHTML("Reporte");
+:};
 
 SENTENCIAS ::= SENTENCIAS S
             |S
@@ -59,20 +121,201 @@ PART ::= CONJUNTOS
         |ERG
         ;
 
-ERG ::= nombres resta mayor EXPRESIONES pcoma;
+ERG ::= nombres:a resta mayor EXPRESIONES:value {: 
+    String prim = IDS + "";
+    String ult = IDS + "";
+    String prime;
+    String ulti;
+    Nodo newEnd = new Nodo("#", Types.ROOT, null, null, parser.contID, parser.IDS, "N", prim, ult);
+    parser.contID++;
+    if(value.getAnulable() == "A"){
+        prime = value.getPrimero() + ult;
+    }else{
+        prime = value.getPrimero();
+    }
+    String ultposA = value.getUltimo();
+    String primposB = newEnd.getPrimero();
+    String aux[] = ultposA.split(",");
+    for(int i = 0; i < aux.length; i++){
+        ct.addNext(aux[i], primposB);
+    }
+    ct.addNext(IDS+"", "--");
+    ct.addNext(IDS+"", "#");
+    ulti = newEnd.getUltimo();
+    Nodo newRoot = new Nodo(".", Types.ROOT, value, newEnd, parser.contID, 0, "N", prime, ulti);
+    parser.Root = newRoot;
+    graphTree(newRoot, a);
+    ct.graphNext(a);
+    ct.Transition(prime, ulti);
+    ct.graphTransitions(a);
+    ct.graphAutomatas(a);
+    ct.clear();
+    String expre = comparacion.Expresion();
+    Expresiones exg = new Expresiones(a, expre);
+    Main.Comparacion.lista_de_expresiones.add(exg);
+    comparacion.clearStacks();
+    //graficar afnd
+    parser.idInicio = 0;
+    parser.idFinal = 1;
+    Main.Container.n = 1;
+    IDS = 1;
+:} pcoma;
 
-EXPRESIONES ::= EXPRESIONES NOTACIONER
-                | NOTACIONER
+EXPRESIONES ::= EXPRESIONES NOTACIONER: a {:RESULT = a; :}
+                | NOTACIONER:a {: RESULT = a; :}
                 ;
 
-NOTACIONER ::= or NOTACIONER NOTACIONER 
-                |concatenacion NOTACIONER NOTACIONER
-                |suma NOTACIONER
-                |asterisco NOTACIONER
-                |interrogacion NOTACIONER
-                |id_conjuntoER
-                |especial_conjER
-                |c_conjuntoER
+NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
+                    String anu;
+                    if(a.getAnulable() == "A" || b.getAnulable() == "A"){
+                        anu = "A";
+                    }else{
+                        anu = "N";
+                    }
+                    String prim = a.getPrimero() + b.getPrimero();
+                    String ult = a.getUltimo() + b.getUltimo();
+                    Nodo newOr = new Nodo("|", Types.DISJUNCTION, a, b, parser.contID, 0, anu, prim, ult);
+
+                    parser.contID++;
+                    
+                    //Comparacion
+                    String first, second, ex1;
+                    first = comparacion.pop();
+                    second = comparacion.pop();
+                    ex1 = "(" + second + "|" + first + ")";
+                    comparacion.add(ex1);
+                    RESULT = newOr;
+                :}
+                |concatenacion NOTACIONER:a NOTACIONER:b{:
+                    String anu, prim, ult;
+                    String ultposA = a.getUltimo();
+                    String primposB = b.getPrimero();
+                    if(a.getAnulable() == "A" && b.getAnulable() == "A"){
+                        anu = "A";
+                    }else{
+                        anu = "N";
+                    }
+
+                    if(a.getAnulable() == "A"){
+                        prim = a.getPrimero() + b.getPrimero();
+                    }else{
+                        prim = a.getPrimero();
+                    }
+
+                    if(b.getAnulable() == "A"){
+                        ult = a.getUltimo() + b.getUltimo();
+                    }else{
+                        ult = b.getUltimo();
+                    }
+
+                    String aux[] = ultposA.split(",");
+                    for(int i = 0; i < aux.length; i++){
+                        ct.addNext(aux[i], primposB);
+                    }
+
+                    Nodo newConcatenation = new Nodo(".", Types.CONCATENATION, a, b, parser.contID, 0, anu, prim, ult);
+
+                    parser.contID++;
+
+                    //Comparacion
+                    String first, second, ex1;
+                    first = comparacion.pop();
+                    second = comparacion.pop();
+                    ex1 = "(" + second + first + ")";
+                    comparacion.add(ex1);
+                    //afnd
+                    parser.idInicio++;
+                    parser.idFinal++;
+                    RESULT = newConcatenation;
+                :}
+                |suma NOTACIONER:a{: 
+                    String prim = a.getPrimero();
+                    String ult = a.getUltimo();
+                    String aux[] = ult.split(",");
+
+                    for(int i = 0; i < aux.length; i++){
+                        ct.addNext(aux[i], prim);
+                    }
+                    Nodo newPositive = new Nodo("+", Types.POSITIVE_LOCK, null, a, parser.contID, 0, "N", prim, ult);
+
+                    parser.contID++;
+
+                    //Comparacion
+                    String first, ex1;
+                    first = comparacion.pop();
+                    ex1 = "(" + first + ")" + "+";
+                    comparacion.add(ex1);
+                    RESULT = newPositive;
+                :}
+                |asterisco NOTACIONER:a {:
+                    String prim = a.getPrimero();
+                    String ult = a.getUltimo();
+                    String aux[] = ult.split(",");
+
+                    for(int i = 0; i < aux.length; i++){
+                        ct.addNext(aux[i], prim);
+                    }
+
+                    Nodo newKleene = new Nodo("*", Types.KLEENE_LOCK, null, a, parser.contID, 0, "N", prim, ult);
+
+                    parser.contID++;
+
+                    //Comparacion
+                    String first, ex1;
+                    first = comparacion.pop();
+                    ex1 = "(" + first + ")" + "*";
+                    comparacion.add(ex1);
+                    RESULT = newKleene;
+                :}
+                |interrogacion NOTACIONER:a {:
+                    String prim = a.getPrimero();
+                    String ult = a.getUltimo();
+                    String aux[] = ult.split(",");
+
+                    Nodo newBoolean = new Nodo("?", Types.BOOLEAN_LOCK, null, a, parser.contID, 0, "N", prim, ult);
+
+                    parser.contID++;
+
+                    //Comparacion
+                    String first, ex1;
+                    first = comparacion.pop();
+                    ex1 = "(" + first + ")" + "?";
+                    comparacion.add(ex1);
+                    RESULT = newBoolean;
+                :}
+                |id_conjuntoER:val {:
+                    String prim= IDS+",";
+                    String ult= IDS+",";
+                    Nodo newIdConEr = new Nodo(val.replace("{","").replace("}",""), Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
+                    ct.addNext(IDS + "", val.replace("{","").replace("}",""));
+                    comparacion.add(val.replace("{"," ").replace("}"," "));
+
+                    parser.IDS++;
+                    parser.contID++;
+                    RESULT = newIdConEr;
+                :}
+                |especial_conjER:val {:
+                    String prim= IDS+",";
+                    String ult= IDS+",";             
+                    Nodo newGuion = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
+                    ct.addNext(IDS + "", val.replace("\"", ""));
+                    comparacion.add(val);
+
+                    parser.IDS++;
+                    parser.contID++;
+                    RESULT=newGuion;                
+                :}
+                |c_conjuntoER:val {:
+                    String prim= IDS+",";
+                    String ult= IDS+",";
+                    Nodo nuevoDec = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
+                    ct.addNext(IDS + "", val.replace("\"", ""));
+                    comparacion.add(val);
+
+                    parser.IDS++;
+                    parser.contID++;
+                    RESULT = nuevoDec;
+                :}
                 |error asterisco
                 |error concatenacion
                 |error c_conjuntoER
@@ -86,9 +329,20 @@ NOTACIONER ::= or NOTACIONER NOTACIONER
 COMPARACIONES ::= COMPARACIONES COMP
                 |COMP;
 
-COMP ::= nombres dospuntos cadenarevi2
+COMP ::= nombres:a dospuntos cadenarevi2:b{:
+            Encadenado cad_a_comparar = new Encadenado(a, b);
+            Main.Comparacion.lista_de_cadenas.add(cad_a_comparar);
+        :} pcoma
         |error pcoma;
 
-CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj pcoma
-            | id_conj dospuntos nombres:a resta mayor notacionj2 pcoma
+CONJUNTOS ::= id_conj dospuntos nombres:a resta mayor notacionj:b {:
+                Conjuntos c = new Conjuntos(a, b.replace("~", "-"));
+                comparacion.addConjunto(a, b.replace("~", "-"));
+                Main.Comparacion.lista_de_conjunto.add(c);
+            :}pcoma
+            | id_conj dospuntos nombres:a resta mayor notacionj2:b {:
+                comparacion.addConjunto(a, b.replace(",", ""));
+                Conjuntos c2 = new Conjuntos(a, b);
+                Main.Comparacion.lista_de_conjunto.add(c2);
+            :} pcoma
             |error pcoma;
