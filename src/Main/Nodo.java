@@ -95,8 +95,7 @@ public class Nodo {
     }
 
     public String getInternalCode() {
-        String cadena = "";
-
+        String cadena;
         if (hizq == null && hder == null) {
             cadena = "nodo" + id + " [ label =< \n"
                     + "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
@@ -114,12 +113,14 @@ public class Nodo {
                     + "</table>\n"
                     + ">];\n";
         }
-        
-        if(hizq != null)
-            cadena = cadena + hizq.getInternalCode() + "nodo" + id + "->nodo" + hizq.id + "\n";
-        
-        if(hder != null)
-            cadena = cadena + hder.getInternalCode() + "nodo" + id + "->nodo" + hder.id + "\n";
+        if (hizq != null) {
+            cadena = cadena + hizq.getInternalCode()
+                    + "nodo" + id + "->nodo" + hizq.id + "\n";
+        }
+        if (hder != null) {
+            cadena = cadena + hder.getInternalCode()
+                    + "nodo" + id + "->nodo" + hder.id + "\n";
+        }
 
         return cadena;
     }

@@ -1,0 +1,6 @@
+digraph G{
+tbl [
+shape=plaintext
+label=<
+<table color='orange' cellspacing='0'>
+<tr><td>Hojas</td><td>Nodos</td><td>Siguientes</td></tr>

@@ -15,201 +15,238 @@ import java.util.regex.Pattern;
  */
 public class Container {
 
-    String id[], notacion[];
-    String aceptaciones, nota, auxS;
-    Hashtable container = new Hashtable();
-    Hashtable next = new Hashtable();
-    Hashtable nextNodes = new Hashtable();
-    Hashtable newStates = new Hashtable();
-    Hashtable nextStates = new Hashtable();
-    public static ArrayList<String> lista_de_conjuntos = new ArrayList<String>();
+    String id[];
+    String aceptaciones;
+    String nota;
+    String notacion[];
+    String auxS;
+    Hashtable contenedor = new Hashtable();
+    Hashtable siguiente = new Hashtable();
+    Hashtable siguienteNodos = new Hashtable();
+    Hashtable EstadosNuevos = new Hashtable();
+    Hashtable EstadosSiguiente = new Hashtable();
+    public static ArrayList<String> listaConjuntos = new ArrayList<String>();
 
-    List<String> ListaE = new ArrayList<String>();
+    List<String> ejemploLista = new ArrayList<String>();
 
     public Container() {
 
     }
 
-    public void addNext(String key, String value) {
-        String tmp;
-        if (next.get(key) != null) {
-            tmp = next.get(key).toString();
-            tmp = tmp + value;
-            next.replace(key, tmp);
+    public void añadirSiguiente(String clave, String valor) {
+        String aux;
+        if (siguiente.get(clave) != null) {
+            aux = siguiente.get(clave).toString();
+            aux = aux + valor;
+            siguiente.replace(clave, aux);
         } else {
-            next.put(key, value);
+            siguiente.put(clave, valor);
         }
-    }
 
-    public void addNextN(String key, String value) {
-        String tmp;
-        if (nextNodes.get(key) != null) {
-            tmp = nextNodes.get(key).toString();
-            tmp = tmp + value;
-            nextNodes.replace(key, value);
-        } else {
-            nextNodes.put(key, "\"" + value + "\"");
-        }
-        auxS = key + "---" + nextNodes.get(key).toString();
+        // auxS=clave+"---"+siguiente.get(clave).toString();
         //System.out.println(auxS);
     }
 
+    public void añadirSiguienteN(String clave, String valor) {
+        String aux;
+        if (siguienteNodos.get(clave) != null) {
+            aux = siguienteNodos.get(clave).toString();
+            aux = aux + valor;
+            siguienteNodos.replace(clave, aux);
+        } else {
+            siguienteNodos.put(clave, "\"" + valor + "\"");
+        }
+
+        auxS = clave + "---" + siguienteNodos.get(clave).toString();
+        // System.out.println(auxS);
+    }
     String S = "S";
     String[] cadena;
     public static int n = 1;
 
-    public void Transition(String Eo, String Ea) {
+    public void Transicion(String Eo, String aceptacion) {
         try {
-            String test = Eo.replace(",", "");
-            String leaf, aux, leaf2;
 
-            newStates.put(Eo, "S0");
-            leaf = nextNodes.get(test).toString();
-            aux = next.get(test).toString();
-            Pattern pattern2 = Pattern.compile(".*" + Ea);
-            Matcher matcher2 = pattern2.matcher(aux);
+            String prueba = Eo.replace(",", "");
+            String hoja;
 
-            if (matcher2.matches()) {
+            String aux;
+            String hoja2;
+
+            EstadosNuevos.put(Eo, "S0");
+
+            hoja = siguienteNodos.get(prueba).toString();
+
+            aux = siguiente.get(prueba).toString();
+            Pattern pat2 = Pattern.compile(".*" + aceptacion);
+            Matcher mat2 = pat2.matcher(aux);
+
+            if (mat2.matches()) {
+
                 cadena = aux.split(",");
-                ListaE.add("S0" + "->" + "S1" + "[ label =" + leaf + "]");
-                if (newStates.get(aux) == null) {
-                    newStates.put(aux, S + n);
-                    for (String cadena1 : cadena) {
-                        if (!Ea.equals(cadena1)) {
-                            leaf2 = nextNodes.get(cadena1).toString();
-                            ListaE.add("S1" + "->" + "S1" + "[ label =" + leaf2 + "]");
-                            lista_de_conjuntos.add(leaf2);
+                ejemploLista.add("S0" + "->" + "S1" + "[ label =" + hoja + "]");
+                if (EstadosNuevos.get(aux) == null) {
+                    EstadosNuevos.put(aux, S + n);
+
+                    for (int j = 0; j < cadena.length; j++) {
+                        if (!aceptacion.equals(cadena[j])) {
+                            hoja2 = siguienteNodos.get(cadena[j]).toString();
+
+                            ejemploLista.add("S1" + "->" + "S1" + "[ label =" + hoja2 + "]");
+                            listaConjuntos.add(hoja2);
+
                             aceptaciones = "S1";
                         }
+
                     }
                 }
             } else {
-                ListaE.add("S0" + "->" + "S1" + "[ label =" + leaf + "]");
-                lista_de_conjuntos.add(leaf);
-                newStates.put(next.get(test), S + (n));
-                Transition2(next.get(test).toString(), Ea); // Si el siguiente del estado inicial no tiene estado de aceptacion se nmanda el siguiente al metodo
+                ejemploLista.add("S0" + "->" + "S1" + "[ label =" + hoja + "]");
+                listaConjuntos.add(hoja);
+                EstadosNuevos.put(siguiente.get(prueba), S + (n));
+                Transicion2(siguiente.get(prueba).toString(), aceptacion); //si el siguiente del estado inicial no tiene estado de aceptacion se manda el seiguiente al metodo
+
             }
+
+            // ImprimirTprueba();
         } catch (Exception e) {
         }
     }
 
-    public void Transition2(String Eo, String Ea) {
+    public void Transicion2(String nuevo, String aceptacion) {
         try {
-            String tmp = Eo;
-            String[] test = tmp.split(",");
-            String leaf, nexts, aux;
-            Pattern pattern2 = Pattern.compile(".*" + Ea);
-            Matcher matcher2 = pattern2.matcher(Eo);
-            if (matcher2.matches()) {
+
+            String temp = nuevo;
+            //System.out.println(nuevo+"ceptacion, "+ aceptacion);
+            String[] prueba = temp.split(",");
+            String hoja;
+            String siguientes;
+            String aux;
+            String siguientes2;
+            Pattern pat2 = Pattern.compile(".*" + aceptacion);
+            Matcher mat2 = pat2.matcher(nuevo);
+            if (mat2.matches()) {
                 aceptaciones = S + n;
             }
-            for (String test1 : test) {
-                //Recorremos el nuevo estado
-                nexts = next.get(test1).toString();
-                leaf = nextNodes.get(test1).toString();
-                if (newStates.get(nexts) != null) {
-                    ListaE.add(S + n + "->" + S + n + "[ label =" + leaf + "]");
-                    lista_de_conjuntos.add(leaf);
+            for (int i = 0; i < prueba.length; i++) {   //recorremos el nuevo estado
+
+                siguientes = siguiente.get(prueba[i]).toString();  //obtenemos los siguientes de cada siguiente del estado
+                //System.out.println(siguientes);
+                hoja = siguienteNodos.get(prueba[i]).toString();
+                if (EstadosNuevos.get(siguientes) != null) {  //si el siguiente ya pertenece a un estado solo se añade recursivamente la hoja
+                    ejemploLista.add(S + n + "->" + S + n + "[ label =" + hoja + "]");
+                    listaConjuntos.add(hoja);
                 } else {
-                    if (!test1.equals(Ea)) {
-                        ListaE.add(S + n + "->" + S + (n + 1) + "[ label =" + leaf + "]");
-                        n++; //Si el siguiente no existe entonces es un nuevo estado
-                        newStates.put(next.get(test1), S + (n));
-                        aux = next.get(test1).toString();
-                        Transition3(aux, Ea);
+                    if (!prueba[i].equals(aceptacion)) {
+
+                        ejemploLista.add(S + n + "->" + S + (n + 1) + "[ label =" + hoja + "]");
+                        n++; //si el siguiente no existe entonces es un nuevo estado
+                        EstadosNuevos.put(siguiente.get(prueba[i]), S + (n));
+                        aux = siguiente.get(prueba[i]).toString();
+                        //System.out.println(aux);
+                        Transicion3(aux, aceptacion);
+
                     }
+
                 }
+
             }
         } catch (Exception e) {
         }
     }
 
-    public static ArrayList<String> getListaDeConjuntos() {
-        return lista_de_conjuntos;
+    public static ArrayList<String> getListaConjuntos() {
+        return listaConjuntos;
     }
 
-    public void Transition3(String Eo, String Ea) {
+    public void Transicion3(String nuevo, String aceptacion) {
         try {
-            String tmp = Eo;
-            String[] test = tmp.split(",");
-            String leaf, nexts, aux;
 
-            Pattern pattern2 = Pattern.compile(".*" + Ea);
-            Matcher matcher2 = pattern2.matcher(Eo);
+            String temp = nuevo;
+            // System.out.println(nuevo+"ceptacion, "+ aceptacion);
+            String[] prueba = temp.split(",");
+            String hoja;
+            String siguientes;
+            String aux;
 
-            if (matcher2.matches()) {
+            Pattern pat2 = Pattern.compile(".*" + aceptacion);
+            Matcher mat2 = pat2.matcher(nuevo);
+            if (mat2.matches()) {
                 aceptaciones = S + n;
             }
+            for (int i = 0; i < prueba.length; i++) {   //recorremos el nuevo estado
 
-            for (String test1 : test) {
-                //Se recorre el nuevo estado
-                nexts = next.get(test1).toString(); //Se obtienen los siguientes de cada siguiente en el estado
-                leaf = nextNodes.get(test1).toString();
-                if (newStates.get(nexts) != null) {
-                    //Si el siguiente ya pertenece a un estado solo se añade recursivamente a la hoja
-                    ListaE.add(S + n + "->" + S + n + "[ label =" + leaf + "]");
+                siguientes = siguiente.get(prueba[i]).toString();  //obtenemos los siguientes de cada siguiente del estado
+                //System.out.println(siguientes);
+                hoja = siguienteNodos.get(prueba[i]).toString();
+                if (EstadosNuevos.get(siguientes) != null) {  //si el siguiente ya pertenece a un estado solo se añade recursivamente la hoja
+                    ejemploLista.add(S + n + "->" + S + n + "[ label =" + hoja + "]");
                 } else {
-                    if (!test1.equals(Ea)) {
-                        ListaE.add(S + n + "->" + S + (n + 1) + "[ label =" + leaf + "]");
-                        n++; //Si el siguiente no existe, entonces es un nuevo estado
-                        newStates.put(next.get(test1), S + (n + 1));
-                        aux = next.get(test1).toString();
-                        Transition2(aux, Ea);
+                    if (!prueba[i].equals(aceptacion)) {
+                        ejemploLista.add(S + n + "->" + S + (n + 1) + "[ label =" + hoja + "]");
+                        n++;//si el siguiente no existe entonces es un nuevo estado
+                        EstadosNuevos.put(siguiente.get(prueba[i]), S + (n + 1));
+                        aux = siguiente.get(prueba[i]).toString();
+                        //System.out.println(aux);
+                        Transicion2(aux, aceptacion);
                     }
-                }
-            }
 
+                }
+
+            }
         } catch (Exception e) {
         }
     }
 
-    public void printTest() {
-        Enumeration enumeration = newStates.elements();
-        Enumeration keys = newStates.keys();
-        Enumeration enumeration2 = nextStates.elements();
-        Enumeration keys2 = nextStates.keys();
-
+    public void ImprimirTprueba() {
+        Enumeration enumeration = EstadosNuevos.elements();
+        Enumeration llaves = EstadosNuevos.keys();
+        Enumeration enumeration2 = EstadosSiguiente.elements();
+        Enumeration llaves2 = EstadosSiguiente.keys();
         while (enumeration.hasMoreElements()) {
             System.out.println("" + "hashtable valores: " + enumeration.nextElement());
         }
 
-        while (keys.hasMoreElements()) {
-            System.out.println("" + "hashtable llaves: " + keys.nextElement());
+        while (llaves.hasMoreElements()) {
+            System.out.println("" + "hashtable llaves: " + llaves.nextElement());
         }
-
         while (enumeration2.hasMoreElements()) {
             System.out.println("" + "hashtable valores N: " + enumeration2.nextElement());
         }
 
-        while (keys2.hasMoreElements()) {
-            System.out.println("" + "hashtable llaves N: " + keys2.nextElement());
+        while (llaves2.hasMoreElements()) {
+            System.out.println("" + "hashtable llaves N: " + llaves2.nextElement());
         }
 
-        for (int i = 0; i < ListaE.size(); i++) {
-            System.out.println(ListaE.get(i));
+        for (int i = 0; i <= ejemploLista.size() - 1; i++) {
+            System.out.println(ejemploLista.get(i));
         }
+
     }
 
-    public void PrintS() {
-        Enumeration enumeration = next.elements();
+    public void ImprimirS() {
+
+        Enumeration enumeration = siguiente.elements();
         while (enumeration.hasMoreElements()) {
             System.out.println("" + "hashtable valores2: " + enumeration.nextElement());
         }
-        Enumeration keys = next.keys();
-        while (keys.hasMoreElements()) {
-            System.out.println("" + "hashtable llaves2 : " + keys.nextElement());
+        Enumeration llaves = siguiente.keys();
+        while (llaves.hasMoreElements()) {
+            System.out.println("" + "hashtable llaves2: " + llaves.nextElement());
         }
+
     }
 
     public void clear() {
-        next.clear();
-        nextNodes.clear();
-        newStates.clear();
-        nextStates.clear();
-        ListaE.clear();
+        siguiente.clear();
+        siguienteNodos.clear();
+        EstadosNuevos.clear();
+        EstadosSiguiente.clear();
+        ejemploLista.clear();
+
     }
 
-    public void graphNext(String name) {
+    public void graficarSiguientes(String name) {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
@@ -221,9 +258,9 @@ public class Container {
             pw.println("label=<");
             pw.println("<table color='orange' cellspacing='0'>");
             pw.println("<tr><td>Hojas</td><td>Nodos</td><td>Siguientes</td></tr>");
-            Enumeration enumeration = next.elements();
-            Enumeration enumeration2 = nextNodes.elements();
-            Enumeration llaves = next.keys();
+            Enumeration enumeration = siguiente.elements();
+            Enumeration enumeration2 = siguienteNodos.elements();
+            Enumeration llaves = siguiente.keys();
             while (llaves.hasMoreElements()) {
                 pw.println("<tr><td>" + enumeration2.nextElement() + "</td><td>" + llaves.nextElement() + "</td><td>" + enumeration.nextElement() + "</td></tr>");
             }
@@ -247,7 +284,7 @@ public class Container {
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
             //dirección del archivo dot
             String fileInputPath = "src/SIGUIENTES_201902502/" + name + ".dot";
-            //dirección donde se creara la magen
+            //dirección donde se creara la imagen
             String fileOutputPath = "src/SIGUIENTES_201902502/" + name + ".jpg";
             //tipo de conversón
             String tParam = "-Tjpg";
@@ -270,7 +307,7 @@ public class Container {
         }
     }
 
-    public void graphTransitions(String name) {
+    public void graficarTransiciones(String name) {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
@@ -282,9 +319,9 @@ public class Container {
             pw.println("label=<");
             pw.println("<table color='orange' cellspacing='0'>");
             pw.println("<tr><td>Estados</td><td>Conjuntos</td></tr>");
-            Enumeration enumeration = newStates.elements();
+            Enumeration enumeration = EstadosNuevos.elements();
 
-            Enumeration llaves = newStates.keys();
+            Enumeration llaves = EstadosNuevos.keys();
             while (llaves.hasMoreElements()) {
                 pw.println("<tr><td>" + enumeration.nextElement() + "</td><td>" + llaves.nextElement() + "</td></tr>");
             }
@@ -295,8 +332,8 @@ public class Container {
             pw.println("label=<");
             pw.println(" <table color='pink' border='0' cellborder='1' cellpadding='10' cellspacing='0'>");
             pw.println("<tr><td>Transiciones</td></tr>");
-            for (int i = 0; i <= ListaE.size() - 1; i++) {
-                pw.println("<tr><td>" + ListaE.get(i).replace('>', ' ').replace("[", "").replace("]", "").replace("label", "-").replace("=", "") + "</td></tr>");
+            for (int i = 0; i <= ejemploLista.size() - 1; i++) {
+                pw.println("<tr><td>" + ejemploLista.get(i).replace('>', ' ').replace("[", "").replace("]", "").replace("label", "-").replace("=", "") + "</td></tr>");
             }
             pw.println("</table>");
 
@@ -342,7 +379,7 @@ public class Container {
         }
     }
 
-    public void graphAutomatas(String name) {
+    public void graficarAutomatas(String name) {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
@@ -353,8 +390,8 @@ public class Container {
             pw.println("size=\"8,5\"");
             pw.println("node [shape = doublecircle];" + aceptaciones + ";");
             pw.println("node [shape = circle];");
-            for (int i = 0; i <= ListaE.size() - 1; i++) {
-                pw.println(ListaE.get(i) + ";");
+            for (int i = 0; i <= ejemploLista.size() - 1; i++) {
+                pw.println(ejemploLista.get(i) + ";");
             }
             pw.println("}");
         } catch (Exception e) {

@@ -1,0 +1,17 @@
+digraph G{
+tbl [
+shape=plaintext
+label=<
+<table color='orange' cellspacing='0'>
+<tr><td>Estados</td><td>Conjuntos</td></tr>
+<tr><td>S0</td><td>1,</td></tr>
+</table>
+>];
+tb2 [
+shape=plaintext
+label=<
+ <table color='pink' border='0' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>Transiciones</td></tr>
+</table>
+>];
+}

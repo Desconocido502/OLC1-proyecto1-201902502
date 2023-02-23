@@ -35,6 +35,26 @@ public class Comparacion {
     Stack stack2 = new Stack();
 
     public Comparacion() {
+        try {
+            lista_de_conjuntos  = Container.getListaConjuntos();
+            for (int i = 0; i < lista_de_conjuntos.size(); i++) {
+                for (int j = 0; j < lista_de_cadenas.size(); j++) {
+                    String aux = lista_de_cadenas.get(i).getEncadenado();
+
+                    for (int k = 0; k < aux.length(); k++) {
+                        Pattern pat2 = Pattern.compile(lista_de_conjuntos.get(i));
+                        Matcher mat2 = pat2.matcher(aux);
+                        if (mat2.matches()) {
+                            aprobado = "correcta";
+                        } else {
+                            aprobado = "incorrecta";
+                        }
+
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
 
     }
 
@@ -124,15 +144,20 @@ public class Comparacion {
                 pw.println("\"Valor\": \"" + lista_de_cadenas.get(i).getEncadenado().replace("\'", "").replace("\"", "") + "\",");
                 pw.println("\"ExpresionRegular\": " + "\"" + lista_de_cadenas.get(i).getId() + "\",");
                 pw.println("\"Resultado\": " + "\"" + aprobado + "\"");
-                if(i < lista_de_cadenas.size()) pw.println("},");
-                else pw.println("}");
+                if (i < lista_de_cadenas.size()) {
+                    pw.println("},");
+                } else {
+                    pw.println("}");
+                }
             }
             pw.print("]");
         } catch (Exception e) {
             System.out.println("error, no se realizo el archivo" + e);
         } finally {
             try {
-                if (file != null) file.close();
+                if (file != null) {
+                    file.close();
+                }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

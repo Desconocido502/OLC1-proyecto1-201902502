@@ -11,6 +11,7 @@ parser code
     Container ct = new Container();
     Comparacion comparacion = new Comparacion();
     Reporte rep = new Reporte();
+    //nodo afnd
 
     public static int contID = 1;
     public static int IDS = 1;
@@ -23,7 +24,7 @@ parser code
         PrintWriter pw = null;
 
         try{
-            file = new FileWriter("src/ARBOLES_201902502" + name + ".dot");
+            file = new FileWriter("src/ARBOLES_201902502/" + name + ".dot");
             pw = new PrintWriter(file);
             pw.println("digraph G{");
             pw.println("rankdir=UD");
@@ -48,6 +49,7 @@ parser code
             //dirección doonde se ecnuentra el compilador de graphviz
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
             //dirección del archivo dot
+              //src/AFD_201902502/
             String fileInputPath = "src/ARBOLES_201902502/" + name + ".dot";
             //dirección donde se creara la magen
             String fileOutputPath = "src/ARBOLES_201902052/" + name + ".jpg";
@@ -75,10 +77,12 @@ parser code
     //                                   Errores Sintacticos
     public void syntax_error(Symbol s){
         System.err.println("Error en la Línea " + (s.right+1) +" Columna "+(s.left+1)+ ". Identificador "+s.value + " no reconocido. Se ha recuperado del error." );
+        //Falta agregar los errores
     }
 
     public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
         System.err.println("Error en la Línea " + (s.right+1)+ " Columna "+(s.left+1)+". Identificador " +s.value + " no reconocido.");
+        //Falta agregar para errores
     }
 
 :}
@@ -137,18 +141,18 @@ ERG ::= nombres:a resta mayor EXPRESIONES:value {:
     String primposB = newEnd.getPrimero();
     String aux[] = ultposA.split(",");
     for(int i = 0; i < aux.length; i++){
-        ct.addNext(aux[i], primposB);
+        ct.añadirSiguiente(aux[i], primposB);
     }
-    ct.addNext(IDS+"", "--");
-    ct.addNext(IDS+"", "#");
+    ct.añadirSiguiente(IDS+"", "--");
+    ct.añadirSiguiente(IDS+"", "#");
     ulti = newEnd.getUltimo();
     Nodo newRoot = new Nodo(".", Types.ROOT, value, newEnd, parser.contID, 0, "N", prime, ulti);
     parser.Root = newRoot;
     graphTree(newRoot, a);
-    ct.graphNext(a);
-    ct.Transition(prime, ulti);
-    ct.graphTransitions(a);
-    ct.graphAutomatas(a);
+    ct.graficarSiguientes(a);
+    ct.Transicion(prime, ulti);
+    ct.graficarTransiciones(a);
+    ct.graficarAutomatas(a);
     ct.clear();
     String expre = comparacion.Expresion();
     Expresiones exg = new Expresiones(a, expre);
@@ -210,7 +214,7 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
 
                     String aux[] = ultposA.split(",");
                     for(int i = 0; i < aux.length; i++){
-                        ct.addNext(aux[i], primposB);
+                        ct.añadirSiguiente(aux[i], primposB);
                     }
 
                     Nodo newConcatenation = new Nodo(".", Types.CONCATENATION, a, b, parser.contID, 0, anu, prim, ult);
@@ -234,7 +238,7 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
                     String aux[] = ult.split(",");
 
                     for(int i = 0; i < aux.length; i++){
-                        ct.addNext(aux[i], prim);
+                        ct.añadirSiguiente(aux[i], prim);
                     }
                     Nodo newPositive = new Nodo("+", Types.POSITIVE_LOCK, null, a, parser.contID, 0, "N", prim, ult);
 
@@ -253,10 +257,10 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
                     String aux[] = ult.split(",");
 
                     for(int i = 0; i < aux.length; i++){
-                        ct.addNext(aux[i], prim);
+                        ct.añadirSiguiente(aux[i], prim);
                     }
 
-                    Nodo newKleene = new Nodo("*", Types.KLEENE_LOCK, null, a, parser.contID, 0, "N", prim, ult);
+                    Nodo newKleene = new Nodo("*", Types.KLEENE_LOCK, null, a, parser.contID, 0, "A", prim, ult);
 
                     parser.contID++;
 
@@ -287,7 +291,7 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
                     String prim= IDS+",";
                     String ult= IDS+",";
                     Nodo newIdConEr = new Nodo(val.replace("{","").replace("}",""), Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.addNext(IDS + "", val.replace("{","").replace("}",""));
+                    ct.añadirSiguiente(IDS + "", val.replace("{","").replace("}",""));
                     comparacion.add(val.replace("{"," ").replace("}"," "));
 
                     parser.IDS++;
@@ -298,7 +302,7 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
                     String prim= IDS+",";
                     String ult= IDS+",";             
                     Nodo newGuion = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.addNext(IDS + "", val.replace("\"", ""));
+                    ct.añadirSiguiente(IDS + "", val.replace("\"", ""));
                     comparacion.add(val);
 
                     parser.IDS++;
@@ -309,7 +313,7 @@ NOTACIONER ::= or NOTACIONER:a NOTACIONER:b {:
                     String prim= IDS+",";
                     String ult= IDS+",";
                     Nodo nuevoDec = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.addNext(IDS + "", val.replace("\"", ""));
+                    ct.añadirSiguiente(IDS + "", val.replace("\"", ""));
                     comparacion.add(val);
 
                     parser.IDS++;

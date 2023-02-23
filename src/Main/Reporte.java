@@ -16,7 +16,7 @@ public class Reporte {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
-            fichero = new FileWriter("src/ERRORES_201901016/" + nombre + ".html");
+            fichero = new FileWriter("src/ERRORES_201902502/" + nombre + ".html");
             pw = new PrintWriter(fichero);
             pw.println("<!DOCTYPE html>");
             pw.println("<html>");
