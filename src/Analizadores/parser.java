@@ -58,29 +58,29 @@ public class parser extends java_cup.runtime.lr_parser {
     unpackFromStrings(new String[] {
     "\000\110\000\004\004\006\001\002\000\006\002\ufffe\004" +
     "\ufffe\001\002\000\006\002\000\004\006\001\002\000\010" +
-    "\003\011\007\013\012\017\001\002\000\004\002\010\001" +
+    "\003\011\007\017\010\013\001\002\000\004\002\010\001" +
     "\002\000\004\002\001\001\002\000\004\015\111\001\002" +
-    "\000\012\003\ufff9\007\ufff9\012\ufff9\016\ufff9\001\002\000" +
-    "\004\011\052\001\002\000\012\003\011\007\013\012\017" +
-    "\016\033\001\002\000\012\003\ufffb\007\ufffb\012\ufffb\016" +
-    "\ufffb\001\002\000\012\003\ufffa\007\ufffa\012\ufffa\016\ufffa" +
-    "\001\002\000\004\006\020\001\002\000\004\007\021\001" +
-    "\002\000\004\011\022\001\002\000\004\010\023\001\002" +
+    "\000\012\003\ufff9\007\ufff9\010\ufff9\016\ufff9\001\002\000" +
+    "\004\011\052\001\002\000\012\003\011\007\017\010\013" +
+    "\016\033\001\002\000\012\003\ufffb\007\ufffb\010\ufffb\016" +
+    "\ufffb\001\002\000\012\003\ufffa\007\ufffa\010\ufffa\016\ufffa" +
+    "\001\002\000\004\006\020\001\002\000\004\010\021\001" +
+    "\002\000\004\011\022\001\002\000\004\012\023\001\002" +
     "\000\006\013\025\014\024\001\002\000\004\015\uffdd\001" +
     "\002\000\004\015\uffdf\001\002\000\004\015\027\001\002" +
-    "\000\012\003\uffde\007\uffde\012\uffde\016\uffde\001\002\000" +
-    "\004\015\031\001\002\000\012\003\uffdc\007\uffdc\012\uffdc" +
-    "\016\uffdc\001\002\000\012\003\ufffc\007\ufffc\012\ufffc\016" +
+    "\000\012\003\uffde\007\uffde\010\uffde\016\uffde\001\002\000" +
+    "\004\015\031\001\002\000\012\003\uffdc\007\uffdc\010\uffdc" +
+    "\016\uffdc\001\002\000\012\003\ufffc\007\ufffc\010\ufffc\016" +
     "\ufffc\001\002\000\004\016\034\001\002\000\004\016\035" +
-    "\001\002\000\004\016\036\001\002\000\006\003\037\007" +
+    "\001\002\000\004\016\036\001\002\000\006\003\037\010" +
     "\040\001\002\000\004\015\051\001\002\000\004\006\045" +
-    "\001\002\000\010\003\037\005\043\007\040\001\002\000" +
-    "\010\003\uffe3\005\uffe3\007\uffe3\001\002\000\006\002\ufffd" +
-    "\004\ufffd\001\002\000\010\003\uffe4\005\uffe4\007\uffe4\001" +
+    "\001\002\000\010\003\037\005\043\010\040\001\002\000" +
+    "\010\003\uffe3\005\uffe3\010\uffe3\001\002\000\006\002\ufffd" +
+    "\004\ufffd\001\002\000\010\003\uffe4\005\uffe4\010\uffe4\001" +
     "\002\000\004\017\046\001\002\000\004\015\uffe2\001\002" +
-    "\000\004\015\050\001\002\000\010\003\uffe1\005\uffe1\007" +
-    "\uffe1\001\002\000\010\003\uffe0\005\uffe0\007\uffe0\001\002" +
-    "\000\004\010\053\001\002\000\024\003\061\020\054\021" +
+    "\000\004\015\050\001\002\000\010\003\uffe1\005\uffe1\010" +
+    "\uffe1\001\002\000\010\003\uffe0\005\uffe0\010\uffe0\001\002" +
+    "\000\004\012\053\001\002\000\024\003\061\020\054\021" +
     "\066\022\063\023\055\024\064\025\062\026\065\027\060" +
     "\001\002\000\026\003\uffef\015\uffef\020\uffef\021\uffef\022" +
     "\uffef\023\uffef\024\uffef\025\uffef\026\uffef\027\uffef\001\002" +
@@ -129,10 +129,10 @@ public class parser extends java_cup.runtime.lr_parser {
     "\023\ufff4\024\ufff4\025\ufff4\026\ufff4\027\ufff4\001\002\000" +
     "\004\015\107\001\002\000\026\003\ufff6\015\ufff6\020\ufff6" +
     "\021\ufff6\022\ufff6\023\ufff6\024\ufff6\025\ufff6\026\ufff6\027" +
-    "\ufff6\001\002\000\012\003\ufff7\007\ufff7\012\ufff7\016\ufff7" +
+    "\ufff6\001\002\000\012\003\ufff7\007\ufff7\010\ufff7\016\ufff7" +
     "\001\002\000\026\003\ufff2\015\ufff2\020\ufff2\021\ufff2\022" +
     "\ufff2\023\ufff2\024\ufff2\025\ufff2\026\ufff2\027\ufff2\001\002" +
-    "\000\012\003\uffdb\007\uffdb\012\uffdb\016\uffdb\001\002\000" +
+    "\000\012\003\uffdb\007\uffdb\010\uffdb\016\uffdb\001\002\000" +
     "\006\002\uffff\004\uffff\001\002" });
 
   /** Access to parse-action table. */
@@ -205,52 +205,48 @@ public class parser extends java_cup.runtime.lr_parser {
   public int error_sym() {return 1;}
 
 
+  
+    Container th = new Container();
+    Comparacion re = new Comparacion();
+    Reporte reporte = new Reporte();
+    //NodoAFND afnd= new NodoAFND();
+    public static int contId=1;
+    public static int IDS=1;
+    public static int idI=0;
+    public static int idF=1;
+    public static Nodo Raiz;
 
-    Container ct = new Container();
-    Comparacion comparacion = new Comparacion();
-    Reporte rep = new Reporte();
-    //nodo afnd
-
-    public static int contID = 1;
-    public static int IDS = 1;
-    public static int idInicio = 0;
-    public static int idFinal = 1;
-    public static Nodo Root;
-
-    public static void graphTree(Nodo current, String name){
-        FileWriter file = null;
-        PrintWriter pw = null;
-
-        try{
-            file = new FileWriter("src/ARBOLES_201902502/" + name + ".dot");
-            pw = new PrintWriter(file);
-            pw.println("digraph G{");
-            pw.println("rankdir=UD");
-            pw.println("node[shape=box]");
-            pw.println("concentrate=true");
-            pw.println(current.getInternalCode());
-            pw.println("}");
-        } catch (Exception e){  
-            System.err.println("error, no se realizo el archivo" + e);
-        } finally {
-            try{
-                if(file != null){
-                    file.close();
+    public static void graficarArbol(Nodo act, String nombre){
+    FileWriter fichero = null;
+    PrintWriter pw = null;
+    try {
+    fichero = new FileWriter("src/ARBOLES_201902502/" + nombre + ".dot");
+    pw = new PrintWriter(fichero);
+    pw.println("digraph G{");
+    pw.println("rankdir=UD");
+    pw.println("node[shape=box]");
+    pw.println("concentrate=true");
+    pw.println(act.getCodigoInterno());
+    pw.println("}");
+    } catch (Exception e) {
+        System.out.println("error, no se realizo el archivo"+e);
+    } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
                 }
-            }catch(Exception e2){
+            } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-
         //para compilar el archivo dot y obtener la imagen
         try {
-            //dirección doonde se ecnuentra el compilador de graphviz
+            //dirección donde se encuentra el compilador de graphviz
             String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
             //dirección del archivo dot
-              //src/AFD_201902502/
-            String fileInputPath = "src/ARBOLES_201902502/" + name + ".dot";
+            String fileInputPath = "src/ARBOLES_201902502/" + nombre + ".dot";
             //dirección donde se creara la magen
-            String fileOutputPath = "src/ARBOLES_201902052/" + name + ".jpg";
+            String fileOutputPath = "src/ARBOLES_201902502/" + nombre + ".jpg";
             //tipo de conversón
             String tParam = "-Tjpg";
             String tOParam = "-o";
@@ -271,18 +267,21 @@ public class parser extends java_cup.runtime.lr_parser {
         } finally {
         }
     }
-
-    //                                   Errores Sintacticos
-    public void syntax_error(Symbol s){
+   
+    //-----------------------------------------para errores sintacticos-------------------------------------------------------------------------------------------
+    public void syntax_error(Symbol s)
+    {
         System.err.println("Error en la Línea " + (s.right+1) +" Columna "+(s.left+1)+ ". Identificador "+s.value + " no reconocido. Se ha recuperado del error." );
-        //Falta agregar los errores
+        // Errores newError= new Errores("Error sintactico: recuperado",s.value.toString(), s.right+1, s.left+1);
+         //proyectocompi1.Reporte.listaErrores.add(newError);
     }
-
-    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception {
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
+    {
         System.err.println("Error en la Línea " + (s.right+1)+ " Columna "+(s.left+1)+". Identificador " +s.value + " no reconocido.");
-        //Falta agregar para errores
+        //Errores newError= new Errores("Error sintactico: no recuperado",s.value.toString(), s.right+1, s.left+1);
+        //proyectocompi1.Reporte.listaErrores.add(newError);    
     }
-
+    //-------------------------------------------------------------------------------------------------------------------------------------------8
 
 
 /** Cup generated class to encapsulate user supplied action code.*/
@@ -290,9 +289,10 @@ public class parser extends java_cup.runtime.lr_parser {
 class CUP$parser$actions {
 
 
-    String temp = "";
-    String temp2 = "";
-    String temp3 = "";
+ String tmp="";
+  String tmp2="";
+  String tmp3="";
+  
 
   private final parser parser;
 
@@ -333,11 +333,11 @@ class CUP$parser$actions {
           case 1: // INICIO ::= SENTENCIAS 
             {
               String RESULT =null;
-		
-    comparacion.comparar();
-    comparacion.printLists();
-    rep.ReporteHTML("Reporte");
-
+		 
+         re.comparacion();
+         re.printLists();
+         reporte.ReporteHTML("Reporte");
+         
               CUP$parser$result = parser.getSymbolFactory().newSymbol("INICIO",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -412,47 +412,49 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-3)).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-3)).value;
-		int valueleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
-		int valueright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
-		Nodo value = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
- 
-    String prim = IDS + "";
-    String ult = IDS + "";
+		int valorleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
+		int valorright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
+		Nodo valor = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
+
+    String prim= IDS+"";
+    String ult= IDS+"";
     String prime;
     String ulti;
-    Nodo newEnd = new Nodo("#", Types.ROOT, null, null, parser.contID, parser.IDS, "N", prim, ult);
-    parser.contID++;
-    if(value.getAnulable() == "A"){
-        prime = value.getPrimero() + ult;
+    Nodo nuevofinal = new Nodo(null,null,"#",parser.contId, parser.IDS,"N",prim,ult, Types.LEAF);
+    parser.contId++;
+    if(valor.getAnulable()=="A"){
+        prime=valor.getPrimero()+ult;
     }else{
-        prime = value.getPrimero();
+        prime=valor.getPrimero();
     }
-    String ultposA = value.getUltimo();
-    String primposB = newEnd.getPrimero();
-    String aux[] = ultposA.split(",");
-    for(int i = 0; i < aux.length; i++){
-        ct.añadirSiguiente(aux[i], primposB);
-    }
-    ct.añadirSiguiente(IDS+"", "--");
-    ct.añadirSiguiente(IDS+"", "#");
-    ulti = newEnd.getUltimo();
-    Nodo newRoot = new Nodo(".", Types.ROOT, value, newEnd, parser.contID, 0, "N", prime, ulti);
-    parser.Root = newRoot;
-    graphTree(newRoot, a);
-    ct.graficarSiguientes(a);
-    ct.Transicion(prime, ulti);
-    ct.graficarTransiciones(a);
-    ct.graficarAutomatas(a);
-    ct.clear();
-    String expre = comparacion.Expresion();
-    Expresiones exg = new Expresiones(a, expre);
+    String ultposA=valor.getUltimo();
+    String primposB=nuevofinal.getPrimero();
+    String []aux= ultposA.split(",");
+    for (int i = 0; i < aux.length; i++) {
+        th.añadirSiguiente(aux[i],primposB);
+     }
+     th.añadirSiguiente(IDS+"","--");
+     th.añadirSiguienteN(IDS+"","#");
+        ulti=nuevofinal.getUltimo();
+    Nodo nuevaraiz = new Nodo(valor, nuevofinal, ".", parser.contId,0,"N",prime,ulti, Types.LEAF);
+    parser.Raiz = nuevaraiz;
+    graficarArbol(nuevaraiz,a);
+    th.graficarSiguientes(a);
+    th.Transicion(prime,ulti);
+    th.graficarTransiciones(a);
+    th.graficarAutomatas(a);
+    th.clear();
+    //Se crea el afnd
+    reporte.graphAFND(nuevaraiz.hizq, a);
+    String ex= re.Expresion();
+    Expresiones exg = new Expresiones(a,ex);
     Main.Comparacion.lista_de_expresiones.add(exg);
-    comparacion.clearStacks();
-    //graficar afnd
-    parser.idInicio = 0;
-    parser.idFinal = 1;
-    Main.Container.n = 1;
-    IDS = 1;
+    re.clearStacks();
+    //afnd.graficarAfnd(a);
+    parser.idI=0;
+    parser.idF=1;
+    Main.Container.n=1;
+    IDS=1;
 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$0",11, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -467,9 +469,9 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-5)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-5)).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-5)).value;
-		int valueleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
-		int valueright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
-		Nodo value = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
+		int valorleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
+		int valorright = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).right;
+		Nodo valor = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.elementAt(CUP$parser$top-2)).value;
 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("ERG",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-5)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -482,7 +484,7 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		RESULT = a; 
+		RESULT= a;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("EXPRESIONES",9, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -494,7 +496,7 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 RESULT = a; 
+		RESULT= a;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("EXPRESIONES",9, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -510,26 +512,27 @@ class CUP$parser$actions {
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo b = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String anu;
-                    if(a.getAnulable() == "A" || b.getAnulable() == "A"){
-                        anu = "A";
-                    }else{
-                        anu = "N";
-                    }
-                    String prim = a.getPrimero() + b.getPrimero();
-                    String ult = a.getUltimo() + b.getUltimo();
-                    Nodo newOr = new Nodo("|", Types.DISJUNCTION, a, b, parser.contID, 0, anu, prim, ult);
-
-                    parser.contID++;
-                    
-                    //Comparacion
-                    String first, second, ex1;
-                    first = comparacion.pop();
-                    second = comparacion.pop();
-                    ex1 = "(" + second + "|" + first + ")";
-                    comparacion.add(ex1);
-                    RESULT = newOr;
+                String an;
+                if(a.getAnulable()=="A" || b.getAnulable()=="A"){
+                    an="A";
+                }else{
+                    an="N";
+                }
+                String prim= a.getPrimero()+b.getPrimero();
+                String ult= a.getUltimo()+b.getUltimo();
+                Nodo nuevaor = new Nodo(a, b, "|", parser.contId,0,an,prim,ult, Types.DISYUNCTION);
                 
+                parser.contId++;
+                //revision
+                String primero;
+                String segundo;
+                String ex;
+                primero=re.pop();
+                segundo= re.pop();
+                ex="("+segundo+"|"+ primero+")";
+                re.add(ex);
+                RESULT = nuevaor;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -545,47 +548,46 @@ class CUP$parser$actions {
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo b = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String anu, prim, ult;
-                    String ultposA = a.getUltimo();
-                    String primposB = b.getPrimero();
-                    if(a.getAnulable() == "A" && b.getAnulable() == "A"){
-                        anu = "A";
-                    }else{
-                        anu = "N";
-                    }
-
-                    if(a.getAnulable() == "A"){
-                        prim = a.getPrimero() + b.getPrimero();
-                    }else{
-                        prim = a.getPrimero();
-                    }
-
-                    if(b.getAnulable() == "A"){
-                        ult = a.getUltimo() + b.getUltimo();
-                    }else{
-                        ult = b.getUltimo();
-                    }
-
-                    String aux[] = ultposA.split(",");
-                    for(int i = 0; i < aux.length; i++){
-                        ct.añadirSiguiente(aux[i], primposB);
-                    }
-
-                    Nodo newConcatenation = new Nodo(".", Types.CONCATENATION, a, b, parser.contID, 0, anu, prim, ult);
-
-                    parser.contID++;
-
-                    //Comparacion
-                    String first, second, ex1;
-                    first = comparacion.pop();
-                    second = comparacion.pop();
-                    ex1 = "(" + second + first + ")";
-                    comparacion.add(ex1);
-                    //afnd
-                    parser.idInicio++;
-                    parser.idFinal++;
-                    RESULT = newConcatenation;
-                
+                String an;
+                String prim;
+                String ult;
+                String ultposA=a.getUltimo();
+                String primposB=b.getPrimero();
+                if(a.getAnulable()=="A" && b.getAnulable()=="A"){
+                    an="A";
+                }else{
+                    an="N";
+                }
+                if(a.getAnulable()=="A"){
+                    prim=a.getPrimero()+b.getPrimero();
+                }else{
+                    prim=a.getPrimero();
+                }
+                if(b.getAnulable()=="A"){
+                    ult=a.getUltimo()+b.getUltimo();
+                }else{
+                    ult=b.getUltimo();
+                }
+                String []aux= ultposA.split(",");
+                for (int i = 0; i < aux.length; i++) {
+                    th.añadirSiguiente(aux[i],primposB);
+                }
+                Nodo nuevacon = new Nodo(a, b, ".", parser.contId,0,an,prim,ult, Types.CONCATENATION);
+               
+                parser.contId++;
+               //revision
+               String primero;
+                String segundo;
+                String ex;
+                primero=re.pop();
+                segundo= re.pop();
+                ex="("+segundo+ primero+")";
+                re.add(ex);
+                //afnd.addAFND(idI,"\""+ a.getValor()+"\"","\""+b.getValor()+"\"",idF,"");
+                parser.idI++;
+                parser.idF++;
+                RESULT = nuevacon;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -597,25 +599,24 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 
-                    String prim = a.getPrimero();
-                    String ult = a.getUltimo();
-                    String aux[] = ult.split(",");
-
-                    for(int i = 0; i < aux.length; i++){
-                        ct.añadirSiguiente(aux[i], prim);
-                    }
-                    Nodo newPositive = new Nodo("+", Types.POSITIVE_LOCK, null, a, parser.contID, 0, "N", prim, ult);
-
-                    parser.contID++;
-
-                    //Comparacion
-                    String first, ex1;
-                    first = comparacion.pop();
-                    ex1 = "(" + first + ")" + "+";
-                    comparacion.add(ex1);
-                    RESULT = newPositive;
+		
+                String prim= a.getPrimero();
+                String ult= a.getUltimo();
+                String []aux= ult.split(",");
+                for (int i = 0; i < aux.length; i++) {
+                    th.añadirSiguiente(aux[i],prim);
+                }
+                Nodo nuevasuma = new Nodo(null, a, "+", parser.contId, 0,"N",prim,ult, Types.POSITIVE_LOCK);
                 
+                parser.contId++;
+                //revision
+                String primero;
+                String ex;
+                primero=re.pop();
+                ex="("+primero+")"+"+";
+                re.add(ex);
+                RESULT = nuevasuma;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -628,25 +629,23 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String prim = a.getPrimero();
-                    String ult = a.getUltimo();
-                    String aux[] = ult.split(",");
-
-                    for(int i = 0; i < aux.length; i++){
-                        ct.añadirSiguiente(aux[i], prim);
-                    }
-
-                    Nodo newKleene = new Nodo("*", Types.KLEENE_LOCK, null, a, parser.contID, 0, "A", prim, ult);
-
-                    parser.contID++;
-
-                    //Comparacion
-                    String first, ex1;
-                    first = comparacion.pop();
-                    ex1 = "(" + first + ")" + "*";
-                    comparacion.add(ex1);
-                    RESULT = newKleene;
+                String prim= a.getPrimero();
+                String ult= a.getUltimo();
+                String []aux= ult.split(",");
+                for (int i = 0; i < aux.length; i++) {
+                    th.añadirSiguiente(aux[i],prim);
+                }
+                Nodo nuevaasterisco = new Nodo(null, a, "*", parser.contId,0,"A",prim,ult, Types.KLEENE_LOCK);
                 
+                parser.contId++;
+               //revision
+               String primero;
+                String ex;
+                primero=re.pop();
+                ex="("+primero+")"+"*";
+                re.add(ex);
+                RESULT = nuevaasterisco;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -659,21 +658,19 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String prim = a.getPrimero();
-                    String ult = a.getUltimo();
-                    String aux[] = ult.split(",");
-
-                    Nodo newBoolean = new Nodo("?", Types.BOOLEAN_LOCK, null, a, parser.contID, 0, "N", prim, ult);
-
-                    parser.contID++;
-
-                    //Comparacion
-                    String first, ex1;
-                    first = comparacion.pop();
-                    ex1 = "(" + first + ")" + "?";
-                    comparacion.add(ex1);
-                    RESULT = newBoolean;
+                String prim= a.getPrimero();
+                String ult= a.getUltimo();
+                Nodo nuevainterrogacion = new Nodo(null, a, "?", parser.contId,0,"A",prim,ult, Types.BOOLEAN_LOCK);
                 
+                parser.contId++;
+                //revision
+                String primero;
+                String ex;
+                primero=re.pop();
+                ex="("+primero+")"+"?";
+                re.add(ex);
+                RESULT = nuevainterrogacion;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -686,16 +683,17 @@ class CUP$parser$actions {
 		int valright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String val = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String prim= IDS+",";
-                    String ult= IDS+",";
-                    Nodo newIdConEr = new Nodo(val.replace("{","").replace("}",""), Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.añadirSiguiente(IDS + "", val.replace("{","").replace("}",""));
-                    comparacion.add(val.replace("{"," ").replace("}"," "));
-
-                    parser.IDS++;
-                    parser.contID++;
-                    RESULT = newIdConEr;
+                String prim= IDS+",";
+                String ult= IDS+",";
+                Nodo nuevoidconer = new Nodo(null,null,val.replace("{","").replace("}",""),parser.contId,parser.IDS,"N",prim,ult,Types.LEAF);
+                th.añadirSiguienteN(IDS+"",val.replace("{","").replace("}",""));
+                re.add(val.replace("{"," ").replace("}"," "));
                 
+                parser.IDS++;
+                parser.contId++;
+                
+                RESULT = nuevoidconer;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -708,16 +706,17 @@ class CUP$parser$actions {
 		int valright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String val = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String prim= IDS+",";
-                    String ult= IDS+",";             
-                    Nodo newGuion = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.añadirSiguiente(IDS + "", val.replace("\"", ""));
-                    comparacion.add(val);
-
-                    parser.IDS++;
-                    parser.contID++;
-                    RESULT=newGuion;                
+                String prim= IDS+",";
+                String ult= IDS+",";
+                Nodo nuevoguion = new Nodo(null,null,val,parser.contId,parser.IDS,"N",prim,ult, Types.LEAF);
+                th.añadirSiguienteN(IDS+"",val.replace("\"",""));
+                re.add(val);
                 
+
+                parser.IDS++;
+                parser.contId++;
+                RESULT = nuevoguion;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -730,16 +729,17 @@ class CUP$parser$actions {
 		int valright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String val = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String prim= IDS+",";
-                    String ult= IDS+",";
-                    Nodo nuevoDec = new Nodo(val, Types.NULL, null, null, parser.contID, parser.IDS, "N", prim, ult);
-                    ct.añadirSiguiente(IDS + "", val.replace("\"", ""));
-                    comparacion.add(val);
-
-                    parser.IDS++;
-                    parser.contID++;
-                    RESULT = nuevoDec;
+                String prim= IDS+",";
+                String ult= IDS+",";
+                Nodo nuevoDec = new Nodo(null,null,val,parser.contId, parser.IDS,"N",prim,ult, Types.LEAF);
+                th.añadirSiguienteN(IDS+"",val.replace("\"",""));
+                re.add(val);
                 
+
+                parser.IDS++;
+                parser.contId++;
+                RESULT = nuevoDec;
+            
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NOTACIONER",10, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -844,10 +844,9 @@ class CUP$parser$actions {
 		int bleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String b = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-
-            Encadenado cad_a_comparar = new Encadenado(a, b);
-            Main.Comparacion.lista_de_cadenas.add(cad_a_comparar);
-        
+ 
+            Encadenado cadrev= new Encadenado(a,b);
+            Main.Comparacion.lista_de_cadenas.add(cadrev);
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$1",12, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -889,9 +888,9 @@ class CUP$parser$actions {
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String b = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 
-                Conjuntos c = new Conjuntos(a, b.replace("~", "-"));
-                comparacion.addConjunto(a, b.replace("~", "-"));
-                Main.Comparacion.lista_de_conjunto.add(c);
+            Conjuntos c = new Conjuntos(a,b.replace("~", "-"));
+            re.addConjunto(a,b.replace("~", "-"));
+            Main.Comparacion.lista_de_conjunto.add(c);
             
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$2",13, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -925,10 +924,9 @@ class CUP$parser$actions {
 		int bright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String b = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 
-                comparacion.addConjunto(a, b.replace(",", ""));
-                Conjuntos c2 = new Conjuntos(a, b);
-                Main.Comparacion.lista_de_conjunto.add(c2);
-            
+            re.addConjunto(a,b.replace(",",""));
+            Conjuntos c2 = new Conjuntos(a,b);
+            Main.Comparacion.lista_de_conjunto.add(c2);
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$3",14, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

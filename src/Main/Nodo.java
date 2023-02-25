@@ -1,33 +1,38 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Main;
 
-import Main.NodeType.Types;
+import java.util.Hashtable;
 
 /**
  *
- * @author CarlosSoto
+ * @author erick
  */
 public class Nodo {
 
     public Nodo hizq;
     public Nodo hder;
-    public Types type;
-    public String lexema; //valor
+    public String valor;
     public int id;
     public int identificador;
     public String anulable;
     public String primero;
     public String ultimo;
+    public NodeType.Types type;
 
-    public Nodo(String lexema, Types type, Nodo hizq, Nodo hder, int id, int identificador, String anulable, String primero, String ultimo) {
-        this.lexema = lexema;
-        this.type = type;
+    public Nodo(Nodo hizq, Nodo hder, String valor, int id, int identificador, String anulable, String primero, String ultimo, NodeType.Types type) {
         this.hizq = hizq;
         this.hder = hder;
+        this.valor = valor;
         this.id = id;
         this.identificador = identificador;
         this.anulable = anulable;
         this.primero = primero;
         this.ultimo = ultimo;
+        this.type = type;
     }
 
     public String getAnulable() {
@@ -66,7 +71,7 @@ public class Nodo {
         return hizq;
     }
 
-    public void seHizq(Nodo hizq) {
+    public void setHizq(Nodo hizq) {
         this.hizq = hizq;
     }
 
@@ -78,12 +83,12 @@ public class Nodo {
         this.hder = hder;
     }
 
-    public String getLexema() {
-        return lexema;
+    public String getValor() {
+        return valor;
     }
 
-    public void setLexema(String lexema) {
-        this.lexema = lexema;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
     public int getId() {
@@ -94,35 +99,43 @@ public class Nodo {
         this.id = id;
     }
 
-    public String getInternalCode() {
-        String cadena;
+    public String getCodigoInterno() {
+        String etiqueta;
         if (hizq == null && hder == null) {
-            cadena = "nodo" + id + " [ label =< \n"
+            etiqueta = "nodo" + id + " [ label =< \n"
                     + "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
                     + "<tr><td>" + anulable + "</td></tr>\n"
-                    + "<tr><td>" + primero + "</td><td>" + lexema + "</td><td>" + ultimo + "</td></tr>\n"
+                    + "<tr><td>" + primero + "</td><td>" + valor + "</td><td>" + ultimo + "</td></tr>\n"
                     + "<tr><td>" + identificador + "</td></tr> \n"
                     + "</table>\n"
                     + ">];\n";
         } else {
-            cadena = "nodo" + id + " [ label =< \n"
+            etiqueta = "nodo" + id + " [ label =< \n"
                     + "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
                     + "<tr><td>" + anulable + "</td></tr>\n"
-                    + "<tr><td>" + primero + "</td><td>" + lexema + "</td><td>" + ultimo + "</td></tr>\n"
+                    + "<tr><td>" + primero + "</td><td>" + valor + "</td><td>" + ultimo + "</td></tr>\n"
                     + "<tr><td>" + identificador + "</td></tr> \n"
                     + "</table>\n"
                     + ">];\n";
         }
         if (hizq != null) {
-            cadena = cadena + hizq.getInternalCode()
+            etiqueta = etiqueta + hizq.getCodigoInterno()
                     + "nodo" + id + "->nodo" + hizq.id + "\n";
         }
         if (hder != null) {
-            cadena = cadena + hder.getInternalCode()
+            etiqueta = etiqueta + hder.getCodigoInterno()
                     + "nodo" + id + "->nodo" + hder.id + "\n";
         }
 
-        return cadena;
+        return etiqueta;
+    }
+
+    public NodeType.Types getType() {
+        return type;
+    }
+
+    public void setType(NodeType.Types type) {
+        this.type = type;
     }
 
 }

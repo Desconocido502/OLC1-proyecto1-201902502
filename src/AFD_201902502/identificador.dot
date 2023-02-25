@@ -1,6 +1,10 @@
 digraph finite_state_machine {
 rankdir=LR;
 size="8,5"
-node [shape = doublecircle];null;
+node [shape = doublecircle];S1;
 node [shape = circle];
+S0->S1[ label ="letra"];
+S1->S1[ label ="_"];
+S1->S1[ label ="letra"];
+S1->S1[ label ="digito"];
 }

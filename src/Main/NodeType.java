@@ -2,17 +2,16 @@ package Main;
 
 /**
  *
- * @author CarlosSoto
+ * @author WINDOWS 10 PRO
  */
 public class NodeType {
-    public static enum Types{
-        ROOT,
+
+    public static enum Types {
         LEAF,
         CONCATENATION,
-        DISJUNCTION,
+        DISYUNCTION,
         KLEENE_LOCK,
         POSITIVE_LOCK,
-        BOOLEAN_LOCK,
-        NULL
+        BOOLEAN_LOCK
     };
 }

@@ -1,0 +1,13 @@
+ digraph G {
+    node [shape=circle fontsize=13 fontname = "helvetica"];
+    nodesep=0.4;
+    ranksep=0.5;
+
+    rankdir=LR;
+
+S1000 -> S1001 [label="ε"];
+S1 -> S2 [label="ε"];
+S1 -> S1001 [label="ε"];
+S0 -> S1 [label="digito"];
+S1001 [shape=doublecircle];
+}

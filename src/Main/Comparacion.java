@@ -35,8 +35,12 @@ public class Comparacion {
     Stack stack2 = new Stack();
 
     public Comparacion() {
+
+    }
+
+    public void comparacion() {
         try {
-            lista_de_conjuntos  = Container.getListaConjuntos();
+            lista_de_conjuntos = Container.getListaConjuntos();
             for (int i = 0; i < lista_de_conjuntos.size(); i++) {
                 for (int j = 0; j < lista_de_cadenas.size(); j++) {
                     String aux = lista_de_cadenas.get(i).getEncadenado();
@@ -55,7 +59,6 @@ public class Comparacion {
             }
         } catch (Exception e) {
         }
-
     }
 
     public static ArrayList<Conjuntos> getListaDeConjuntos() {

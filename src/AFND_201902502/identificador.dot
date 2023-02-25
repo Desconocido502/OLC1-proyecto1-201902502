@@ -1,0 +1,10 @@
+ digraph G {
+    node [shape=circle fontsize=13 fontname = "helvetica"];
+    nodesep=0.4;
+    ranksep=0.5;
+
+    rankdir=LR;
+
+S0 -> S1 [label="letra"];
+S1 [shape=doublecircle];
+}

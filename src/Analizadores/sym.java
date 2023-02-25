@@ -24,22 +24,22 @@ public class sym {
   public static final int id_conjuntoER = 14;
   public static final int interrogacion = 19;
   public static final int suma = 17;
-  public static final int nombres = 5;
+  public static final int nombres = 6;
   public static final int concatenacion = 18;
-  public static final int id_conj = 8;
+  public static final int id_conj = 5;
   public static final int cadenarevi2 = 13;
   public static final int dospuntos = 4;
-  public static final int mayor = 6;
+  public static final int mayor = 8;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
   "allave",
   "cllave",
   "dospuntos",
-  "nombres",
-  "mayor",
-  "resta",
   "id_conj",
+  "nombres",
+  "resta",
+  "mayor",
   "notacionj",
   "notacionj2",
   "pcoma",
