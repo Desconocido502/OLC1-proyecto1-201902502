@@ -99,6 +99,14 @@ public class Nodo {
         this.id = id;
     }
 
+    public NodeType.Types getType() {
+        return type;
+    }
+
+    public void setType(NodeType.Types type) {
+        this.type = type;
+    }
+
     public String getCodigoInterno() {
         String etiqueta;
         if (hizq == null && hder == null) {
@@ -128,14 +136,6 @@ public class Nodo {
         }
 
         return etiqueta;
-    }
-
-    public NodeType.Types getType() {
-        return type;
-    }
-
-    public void setType(NodeType.Types type) {
-        this.type = type;
     }
 
 }

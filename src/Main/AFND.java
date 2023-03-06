@@ -15,7 +15,10 @@ public class AFND {
     private final String epsilon = "ε";
 
     public AFND(Nodo tree) {
-        transiciones = Buscar(tree.getHizq());
+        transiciones = Buscar(tree);
+        //System.out.println("--------Codigo-------------");
+        //System.out.println(tree.getCodigoInterno());
+        //System.out.println("--------Fin-Codigo---------");
         transiciones.isEmpty();
     }
 
@@ -35,10 +38,12 @@ public class AFND {
 
         if (node.hizq != null) {
             t1 = Buscar(node.hizq);
+            //System.out.println("t1>"+t1.get(0)+"<");
         }
 
         if (node.hder != null) {
             t2 = Buscar(node.hder);
+            //System.out.println("t2>"+t2.get(0)+"<");
         }
 
         switch (node.type) {
@@ -136,7 +141,7 @@ public class AFND {
                         max1 = t.getFinalState();
                     }
                 }
-
+                //System.out.println("min1:" + String.valueOf(min1) + ", max1:" + String.valueOf(max1));
                 t3.add(new Transicion(min1, epsilon, min1 + 1));
 
                 for (Transicion t : t1) {
@@ -148,7 +153,7 @@ public class AFND {
 
                 t3.addAll(t1);
                 t3.addAll(t2);
-
+                //System.out.println("t3->" + t3.get(0));
                 return t3;
 
             case BOOLEAN_LOCK:
@@ -180,6 +185,7 @@ public class AFND {
 
             default:
                 Transicion tran = new Transicion(0, node.valor, 1);
+                //System.out.println("-" + tran + "-");
                 t3.add(tran);
                 return t3;
 

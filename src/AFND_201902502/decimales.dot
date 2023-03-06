@@ -2,12 +2,16 @@
     node [shape=circle fontsize=13 fontname = "helvetica"];
     nodesep=0.4;
     ranksep=0.5;
-
     rankdir=LR;
 
-S1000 -> S1001 [label="ε"];
-S1 -> S2 [label="ε"];
-S1 -> S1001 [label="ε"];
-S0 -> S1 [label="digito"];
-S1001 [shape=doublecircle];
+S0 -> S1 [label="ε"];
+S2 -> S3 [label="ε"];
+S2 -> S1 [label="ε"];
+S1 -> S2 [label="digito"];
+S3 -> S4 [label="."];
+S4 -> S5 [label="ε"];
+S6 -> S7 [label="ε"];
+S6 -> S5 [label="ε"];
+S5 -> S6 [label="digito"];
+S7 [shape=doublecircle];
 }

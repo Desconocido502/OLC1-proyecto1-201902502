@@ -216,6 +216,25 @@ public class parser extends java_cup.runtime.lr_parser {
     public static int idF=1;
     public static Nodo Raiz;
 
+    public static String graphTree(Nodo node){
+        String cadena = "";
+
+        if((node.hder == null) && (node.hizq == null)){
+            cadena = "nodo" + String.valueOf(node.getId()) + "[label =\" " + node.getValor() + "\"];\n";
+        }else{
+            cadena = "nodo" + String.valueOf(node.getId())+"[label =\"<C0>| " + node.getValor() + "|<C1> \"]; \n";
+        }
+
+        if(node.hizq != null){
+            cadena = cadena + node.hizq.getCodigoInterno() + "nodo" + String.valueOf(node.getId()) + "C0->nodo" + String.valueOf(node.hizq.getId()) + "\n";
+        }
+
+        if(node.hder != null){
+            cadena = cadena + node.hder.getCodigoInterno() + "nodo" + String.valueOf(node.getId()) + "C1->nodo" + String.valueOf(node.hder.getId()) + "\n";
+        }
+        return cadena;
+    }
+
     public static void graficarArbol(Nodo act, String nombre){
     FileWriter fichero = null;
     PrintWriter pw = null;
@@ -439,13 +458,14 @@ class CUP$parser$actions {
     Nodo nuevaraiz = new Nodo(valor, nuevofinal, ".", parser.contId,0,"N",prime,ulti, Types.LEAF);
     parser.Raiz = nuevaraiz;
     graficarArbol(nuevaraiz,a);
+    //System.out.println(graphTree(nuevaraiz.hizq));
     th.graficarSiguientes(a);
     th.Transicion(prime,ulti);
     th.graficarTransiciones(a);
     th.graficarAutomatas(a);
     th.clear();
     //Se crea el afnd
-    reporte.graphAFND(nuevaraiz.hizq, a);
+    reporte.graphAFND(nuevaraiz.hizq, a); //Se le manda el lado izquierdo por que el resto superior no es util
     String ex= re.Expresion();
     Expresiones exg = new Expresiones(a,ex);
     Main.Comparacion.lista_de_expresiones.add(exg);
@@ -606,7 +626,7 @@ class CUP$parser$actions {
                 for (int i = 0; i < aux.length; i++) {
                     th.añadirSiguiente(aux[i],prim);
                 }
-                Nodo nuevasuma = new Nodo(null, a, "+", parser.contId, 0,"N",prim,ult, Types.POSITIVE_LOCK);
+                Nodo nuevasuma = new Nodo(a, null, "+", parser.contId, 0,"N",prim,ult, Types.POSITIVE_LOCK);
                 
                 parser.contId++;
                 //revision
@@ -635,7 +655,7 @@ class CUP$parser$actions {
                 for (int i = 0; i < aux.length; i++) {
                     th.añadirSiguiente(aux[i],prim);
                 }
-                Nodo nuevaasterisco = new Nodo(null, a, "*", parser.contId,0,"A",prim,ult, Types.KLEENE_LOCK);
+                Nodo nuevaasterisco = new Nodo(a, null, "*", parser.contId,0,"A",prim,ult, Types.KLEENE_LOCK);
                 
                 parser.contId++;
                //revision
@@ -660,7 +680,7 @@ class CUP$parser$actions {
 		
                 String prim= a.getPrimero();
                 String ult= a.getUltimo();
-                Nodo nuevainterrogacion = new Nodo(null, a, "?", parser.contId,0,"A",prim,ult, Types.BOOLEAN_LOCK);
+                Nodo nuevainterrogacion = new Nodo(a, null, "?", parser.contId,0,"A",prim,ult, Types.BOOLEAN_LOCK);
                 
                 parser.contId++;
                 //revision

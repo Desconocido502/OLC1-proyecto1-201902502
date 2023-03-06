@@ -39,12 +39,12 @@ public class Transicion {
         return Integer.parseInt(finalState.substring(1));
     }
 
-    public boolean compare(String initialState, String transition) {
+    public boolean compare(int initialState, String transition) {
         return this.initialState.equals(initialState) && this.transition.equals(transition);
     }
 
     @Override
     public String toString() {
-        return this.initialState + " —" + this.transition + "→ " + this.finalState;
+        return String.valueOf(this.initialState) + " —" + this.transition + "→ " + String.valueOf(this.finalState);
     }
 }

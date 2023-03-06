@@ -97,13 +97,16 @@ public class Reporte {
             String s = " digraph G {\n"
                     + "    node [shape=circle fontsize=13 fontname = \"helvetica\"];\n"
                     + "    nodesep=0.4;\n"
-                    + "    ranksep=0.5;\n\n"
+                    + "    ranksep=0.5;\n"
                     + "    rankdir=LR;\n\n";
 
+            System.out.println("\n--------------------------------------------------\n");
             for (Transicion t : afnd.getTransitions()) {
                 s += t.initialState + " -> " + t.finalState + " [label=\"" + t.transition.replace("\"", "") + "\"];\n";
+                //System.out.println("S" + t.initialState + " -> " + "S" + t.finalState + " [label=\"" + t.transition.replace("\"", "") + "\"];");
             }
-
+            //System.out.println(afnd.getLast());
+            System.out.println("\n--------------------------------------------------\n");
             s += afnd.getLast() + " [shape=doublecircle];\n";
             s += "}";
 
