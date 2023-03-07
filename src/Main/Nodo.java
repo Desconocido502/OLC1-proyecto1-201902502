@@ -112,17 +112,17 @@ public class Nodo {
         if (hizq == null && hder == null) {
             etiqueta = "nodo" + id + " [ label =< \n"
                     + "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
-                    + "<tr><td>" + anulable + "</td></tr>\n"
+                    + "<tr><td colspan=\"3\">" + anulable + "</td></tr>\n"
                     + "<tr><td>" + primero + "</td><td>" + valor + "</td><td>" + ultimo + "</td></tr>\n"
-                    + "<tr><td>" + identificador + "</td></tr> \n"
+                    + "<tr><td colspan=\"3\">id: " + identificador + "</td></tr> \n"
                     + "</table>\n"
                     + ">];\n";
         } else {
             etiqueta = "nodo" + id + " [ label =< \n"
                     + "<table border='0' cellborder='1' color='blue' cellspacing='0'>\n"
-                    + "<tr><td>" + anulable + "</td></tr>\n"
+                    + "<tr><td colspan=\"3\">" + anulable + "</td></tr>\n"
                     + "<tr><td>" + primero + "</td><td>" + valor + "</td><td>" + ultimo + "</td></tr>\n"
-                    + "<tr><td>" + identificador + "</td></tr> \n"
+                    + "<tr><td colspan=\"3\">id: " + identificador + "</td></tr> \n"
                     + "</table>\n"
                     + ">];\n";
         }

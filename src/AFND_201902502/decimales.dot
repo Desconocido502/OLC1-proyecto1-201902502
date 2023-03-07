@@ -1,5 +1,5 @@
  digraph G {
-    node [shape=circle fontsize=13 fontname = "helvetica"];
+    node [shape=circle fontsize=13 fontname = "helvetica" style=filled fillcolor="#CCCCCC"];
     nodesep=0.4;
     ranksep=0.5;
     rankdir=LR;
@@ -13,5 +13,5 @@ S4 -> S5 [label="ε"];
 S6 -> S7 [label="ε"];
 S6 -> S5 [label="ε"];
 S5 -> S6 [label="digito"];
-S7 [shape=doublecircle];
+S7[shape = doublecircle, style = filled, fillcolor = "#FFA500"];
 }

@@ -2,7 +2,7 @@ digraph G{
 tbl [
 shape=plaintext
 label=<
-<table color='orange' cellspacing='0'>
+<table color='#E82543' cellspacing='0' bgcolor="#25E8D6">
 <tr><td>Estados</td><td>Conjuntos</td></tr>
 <tr><td>S0</td><td>1,</td></tr>
 <tr><td>S1</td><td>2,3,4,5</td></tr>
@@ -11,7 +11,7 @@ label=<
 tb2 [
 shape=plaintext
 label=<
- <table color='pink' border='0' cellborder='1' cellpadding='10' cellspacing='0'>
+ <table color="#6625DE" border='0' cellborder='1' cellpadding='10' cellspacing='0' bgcolor="#61F22F">
 <tr><td>Transiciones</td></tr>
 <tr><td>S0- S1 - "letra"</td></tr>
 <tr><td>S1- S1 - "_"</td></tr>

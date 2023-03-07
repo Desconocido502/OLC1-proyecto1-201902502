@@ -1,64 +1,64 @@
 digraph G{
 rankdir=UD
-node[shape=box]
+node[shape=box, color=black, style=filled, fillcolor=gray93record, color=blue ,style="rounded,filled", fillcolor=gray93];
 concentrate=true
 nodo18 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>1,</td><td>.</td><td>4</td></tr>
-<tr><td>0</td></tr> 
+<tr><td colspan="3">id: 0</td></tr> 
 </table>
 >];
 nodo16 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>1,</td><td>.</td><td>3,</td></tr>
-<tr><td>0</td></tr> 
+<tr><td colspan="3">id: 0</td></tr> 
 </table>
 >];
 nodo11 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>1,</td><td>+</td><td>1,</td></tr>
-<tr><td>0</td></tr> 
+<tr><td colspan="3">id: 0</td></tr> 
 </table>
 >];
 nodo10 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>1,</td><td>digito</td><td>1,</td></tr>
-<tr><td>1</td></tr> 
+<tr><td colspan="3">id: 1</td></tr> 
 </table>
 >];
 nodo11->nodo10
 nodo16->nodo11
 nodo15 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>2,</td><td>.</td><td>3,</td></tr>
-<tr><td>0</td></tr> 
+<tr><td colspan="3">id: 0</td></tr> 
 </table>
 >];
 nodo12 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>2,</td><td>"."</td><td>2,</td></tr>
-<tr><td>2</td></tr> 
+<tr><td colspan="3">id: 2</td></tr> 
 </table>
 >];
 nodo15->nodo12
 nodo14 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>3,</td><td>+</td><td>3,</td></tr>
-<tr><td>0</td></tr> 
+<tr><td colspan="3">id: 0</td></tr> 
 </table>
 >];
 nodo13 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>3,</td><td>digito</td><td>3,</td></tr>
-<tr><td>3</td></tr> 
+<tr><td colspan="3">id: 3</td></tr> 
 </table>
 >];
 nodo14->nodo13
@@ -67,9 +67,9 @@ nodo16->nodo15
 nodo18->nodo16
 nodo17 [ label =< 
 <table border='0' cellborder='1' color='blue' cellspacing='0'>
-<tr><td>N</td></tr>
+<tr><td colspan="3">N</td></tr>
 <tr><td>4</td><td>#</td><td>4</td></tr>
-<tr><td>4</td></tr> 
+<tr><td colspan="3">id: 4</td></tr> 
 </table>
 >];
 nodo18->nodo17

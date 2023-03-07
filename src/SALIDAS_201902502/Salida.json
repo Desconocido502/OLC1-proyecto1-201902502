@@ -1,0 +1,17 @@
+[
+{
+"Valor": "@yAsaLioComPI_1",
+"ExpresionRegular": "igusername",
+"Resultado": "aprobado"
+},
+{
+"Valor": "15/03/2021",
+"ExpresionRegular": "fecha",
+"Resultado": "aprobado"
+},
+{
+"Valor": "hola#Mundo",
+"ExpresionRegular": "erAzar",
+"Resultado": "aprobado"
+}
+]

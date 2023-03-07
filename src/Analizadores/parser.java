@@ -243,7 +243,7 @@ public class parser extends java_cup.runtime.lr_parser {
     pw = new PrintWriter(fichero);
     pw.println("digraph G{");
     pw.println("rankdir=UD");
-    pw.println("node[shape=box]");
+    pw.println("node[shape=box, color=black, style=filled, fillcolor=gray93record, color=blue ,style=\"rounded,filled\", fillcolor=gray93];");
     pw.println("concentrate=true");
     pw.println(act.getCodigoInterno());
     pw.println("}");

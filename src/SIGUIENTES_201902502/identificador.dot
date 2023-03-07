@@ -2,7 +2,7 @@ digraph G{
 tbl [
 shape=plaintext
 label=<
-<table color='orange' cellspacing='0'>
+<table color='red' cellspacing='0' bgcolor="#FFF633">
 <tr><td>Hojas</td><td>Nodos</td><td>Siguientes</td></tr>
 <tr><td>"#"</td><td>5</td><td>--</td></tr>
 <tr><td>"digito"</td><td>4</td><td>2,3,4,5</td></tr>

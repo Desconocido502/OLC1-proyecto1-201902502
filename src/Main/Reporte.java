@@ -95,7 +95,7 @@ public class Reporte {
             AFND afnd = new AFND(tree);
 
             String s = " digraph G {\n"
-                    + "    node [shape=circle fontsize=13 fontname = \"helvetica\"];\n"
+                    + "    node [shape=circle fontsize=13 fontname = \"helvetica\" style=filled fillcolor=\"#CCCCCC\"];\n"
                     + "    nodesep=0.4;\n"
                     + "    ranksep=0.5;\n"
                     + "    rankdir=LR;\n\n";
@@ -107,7 +107,7 @@ public class Reporte {
             }
             //System.out.println(afnd.getLast());
             System.out.println("\n--------------------------------------------------\n");
-            s += afnd.getLast() + " [shape=doublecircle];\n";
+            s += afnd.getLast() + "[shape = doublecircle, style = filled, fillcolor = \"#FFA500\"];\n";
             s += "}";
 
             pw.println(s);

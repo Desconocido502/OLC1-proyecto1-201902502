@@ -128,6 +128,7 @@ public class Container {
             if (mat2.matches()) {
                 aceptaciones = S + n;
             }
+
             for (int i = 0; i < prueba.length; i++) {   //recorremos el nuevo estado
 
                 siguientes = siguiente.get(prueba[i]).toString();  //obtenemos los siguientes de cada siguiente del estado
@@ -254,9 +255,10 @@ public class Container {
             pw = new PrintWriter(fichero);
             pw.println("digraph G{");
             pw.println("tbl [");
+            //pw.println("graph [bgcolor=white]");
             pw.println("shape=plaintext");
             pw.println("label=<");
-            pw.println("<table color='orange' cellspacing='0'>");
+            pw.println("<table color='red' cellspacing='0' bgcolor=\"#FFF633\">");
             pw.println("<tr><td>Hojas</td><td>Nodos</td><td>Siguientes</td></tr>");
             Enumeration enumeration = siguiente.elements();
             Enumeration enumeration2 = siguienteNodos.elements();
@@ -317,7 +319,7 @@ public class Container {
             pw.println("tbl [");
             pw.println("shape=plaintext");
             pw.println("label=<");
-            pw.println("<table color='orange' cellspacing='0'>");
+            pw.println("<table color='#E82543' cellspacing='0' bgcolor=\"#25E8D6\">");
             pw.println("<tr><td>Estados</td><td>Conjuntos</td></tr>");
             Enumeration enumeration = EstadosNuevos.elements();
 
@@ -330,7 +332,7 @@ public class Container {
             pw.println("tb2 [");
             pw.println("shape=plaintext");
             pw.println("label=<");
-            pw.println(" <table color='pink' border='0' cellborder='1' cellpadding='10' cellspacing='0'>");
+            pw.println(" <table color=\"#6625DE\" border='0' cellborder='1' cellpadding='10' cellspacing='0' bgcolor=\"#61F22F\">");
             pw.println("<tr><td>Transiciones</td></tr>");
             for (int i = 0; i <= ejemploLista.size() - 1; i++) {
                 pw.println("<tr><td>" + ejemploLista.get(i).replace('>', ' ').replace("[", "").replace("]", "").replace("label", "-").replace("=", "") + "</td></tr>");
@@ -383,13 +385,22 @@ public class Container {
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
+            String cadenita = "";
+            System.out.println("Ocurrencias:");
+            ArrayList<String> aceptacionesS = obtenerOcurrencias(aceptaciones);
+            for (String ocurrencia : aceptacionesS) {
+                //System.out.println("Ocurrencia: " + ocurrencia);
+                cadenita += ocurrencia + "[shape = doublecircle, style = filled, fillcolor = \"#FFA500\"];\n";
+            }
+            System.out.println(cadenita);
             fichero = new FileWriter("src/AFD_201902502/" + name + ".dot");
             pw = new PrintWriter(fichero);
             pw.println("digraph finite_state_machine {");
             pw.println("rankdir=LR;");
             pw.println("size=\"8,5\"");
-            pw.println("node [shape = doublecircle];" + aceptaciones + ";");
-            pw.println("node [shape = circle];");
+            pw.println(cadenita);
+            //pw.println("node [shape = doublecircle];" + aceptaciones + ";");
+            pw.println("node [shape = circle, style = filled, fillcolor = \"#CCCCCC\"];");
             for (int i = 0; i <= ejemploLista.size() - 1; i++) {
                 pw.println(ejemploLista.get(i) + ";");
             }
@@ -432,5 +443,17 @@ public class Container {
             ex.printStackTrace();
         } finally {
         }
+    }
+
+    private ArrayList<String> obtenerOcurrencias(String cadena) {
+        String patron = "S\\d+";
+        Pattern pattern = Pattern.compile(patron);
+        Matcher matcher = pattern.matcher(cadena);
+        ArrayList<String> coincidencias = new ArrayList<String>();
+
+        while (matcher.find()) {
+            coincidencias.add(matcher.group());
+        }
+        return coincidencias;
     }
 }

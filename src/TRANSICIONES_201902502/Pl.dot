@@ -1,0 +1,34 @@
+digraph G{
+tbl [
+shape=plaintext
+label=<
+<table color='orange' cellspacing='0'>
+<tr><td>Estados</td><td>Conjuntos</td></tr>
+<tr><td>S0</td><td>1,</td></tr>
+<tr><td>S6</td><td>6,</td></tr>
+<tr><td>S2</td><td>3,</td></tr>
+<tr><td>S8</td><td>9</td></tr>
+<tr><td>S8</td><td>8,</td></tr>
+<tr><td>S4</td><td>5,</td></tr>
+<tr><td>S1</td><td>2,3,</td></tr>
+<tr><td>S6</td><td>7,</td></tr>
+<tr><td>S4</td><td>4,</td></tr>
+</table>
+>];
+tb2 [
+shape=plaintext
+label=<
+ <table color='pink' border='0' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>Transiciones</td></tr>
+<tr><td>S0- S1 - "posibles"</td></tr>
+<tr><td>S1- S2 - "-"</td></tr>
+<tr><td>S2- S3 - "digito"</td></tr>
+<tr><td>S3- S4 - "digito"</td></tr>
+<tr><td>S4- S5 - "digito"</td></tr>
+<tr><td>S5- S6 - "letra"</td></tr>
+<tr><td>S6- S7 - "letra"</td></tr>
+<tr><td>S7- S8 - "letra"</td></tr>
+<tr><td>S8- S8 - "digito"</td></tr>
+</table>
+>];
+}
