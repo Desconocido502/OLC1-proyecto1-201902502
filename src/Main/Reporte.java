@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author EDUARDO
+ * @author WINDOWS 10 PRO
  */
 public class Reporte {
 

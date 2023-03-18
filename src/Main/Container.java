@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author EDUARDO
+ * @author WINDOWS 10 PRO 
  */
 public class Container {
 
@@ -386,13 +386,13 @@ public class Container {
         PrintWriter pw = null;
         try {
             String cadenita = "";
-            System.out.println("Ocurrencias:");
+            //System.out.println("Ocurrencias:");
             ArrayList<String> aceptacionesS = obtenerOcurrencias(aceptaciones);
             for (String ocurrencia : aceptacionesS) {
                 //System.out.println("Ocurrencia: " + ocurrencia);
                 cadenita += ocurrencia + "[shape = doublecircle, style = filled, fillcolor = \"#FFA500\"];\n";
             }
-            System.out.println(cadenita);
+            //System.out.println(cadenita);
             fichero = new FileWriter("src/AFD_201902502/" + name + ".dot");
             pw = new PrintWriter(fichero);
             pw.println("digraph finite_state_machine {");

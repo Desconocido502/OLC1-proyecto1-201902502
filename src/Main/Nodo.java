@@ -9,7 +9,7 @@ import java.util.Hashtable;
 
 /**
  *
- * @author erick
+ * @author WINDOWS 10 PRO
  */
 public class Nodo {
 

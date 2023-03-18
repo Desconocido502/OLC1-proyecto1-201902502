@@ -18,7 +18,7 @@ import static Main.Comparacion.lista_de_cadenas;
 
 /**
  *
- * @author kevin
+ * @author WINDOWS 10 PRO
  */
 public class Ventana extends javax.swing.JFrame {
 

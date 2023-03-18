@@ -4,7 +4,7 @@ import java.io.StringReader;
 
 /**
  *
- * @author CarlosSoto
+ * @author WINDOWS 10 PRO
  */
 public class EXREGAN {
 

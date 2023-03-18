@@ -1,8 +1,9 @@
 digraph finite_state_machine {
 rankdir=LR;
 size="8,5"
-node [shape = doublecircle];S2;
-node [shape = circle];
+S2[shape = doublecircle, style = filled, fillcolor = "#FFA500"];
+
+node [shape = circle, style = filled, fillcolor = "#CCCCCC"];
 S0->S1[ label ="@"];
 S1->S2[ label ="minus"];
 S2->S2[ label ="minus"];

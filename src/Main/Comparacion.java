@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author EDUARDO
+ * @author WINDOWS 10 PRO
  */
 public class Comparacion {
 
@@ -111,9 +111,11 @@ public class Comparacion {
     }
 
     public void printLists() {
+        Ventana.salida = "";
         for (int i = 0; i < lista_de_cadenas.size(); i++) {
             System.out.println("cadenas{ id: " + lista_de_cadenas.get(i).getId() + ", cadena: " + lista_de_cadenas.get(i).getEncadenado() + " }");
-            //CODIGO DE VENTANA PROXIMAMENTE
+            //CODIGO DE VENTANA
+            Ventana.salida += "La cadena: " +  lista_de_cadenas.get(i).getEncadenado() + " es " + aprobado + " para la expresion: "  + lista_de_cadenas.get(i).getId() + "\n";
         }
 
         for (int i = 0; i < lista_de_conjunto.size(); i++) {

@@ -2,7 +2,7 @@ package Main;
 
 /**
  *
- * @author CarlosSoto
+ * @author WINDOWS 10 PRO
  */
 public class Encadenado {
 

@@ -5,7 +5,8 @@ import java.util.Map;
 
 /**
  *
- * @author WINDOWS 10 PRO
+ * @author WINDOWS 10 PRO 
+ *test class*
  */
 public class Estado {
 

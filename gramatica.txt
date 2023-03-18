@@ -1,0 +1,43 @@
+INICIO::= SENTENCIAS
+
+SENTENCIAS::= SENTENCIAS S
+		|S
+
+S::= allave PRIMERAP porcentajes porcentajes porcentajes porcentajes COMPARACIONES cllave
+
+PRIMERAP::= PRIMERAP PART
+		| PART
+
+PART::= CONJUNTOS
+	|ERG
+
+ERG::= nombres resta mayor EXPRESIONES pcoma
+
+EXPRESIONES::= EXPRESIONES NOTACIONER
+		|NOTACIONER
+
+NOTACIONER::= or NOTACIONER NOTACIONER
+		|concatenacion NOTACIONER NOTACIONER
+		|suma NOTACIONER
+		|asterisco NOTACIONER
+		|interrogacion NOTACIONER
+		|id_conjuntoER
+		|especial_conjER
+		|c_conjuntoER
+		|error asterisco
+		|error concatenacion
+		|error c_conjuntoER
+		|error especialconjER
+		|error id_conjuntoER
+		|error suma
+		|error or
+
+COMPARACIONES::=COMPARACIONES COMP
+		|COMP
+
+COMP::=nombres dospuntos cadenarevi2 pcoma
+	|error pcoma
+
+CONJUNTOS::= id_conj dospuntos nombres resta mayor notacionconj pcoma
+		|id_conj dospuntos nombres resta mayor notacionj2 pcoma
+		|error pcoma

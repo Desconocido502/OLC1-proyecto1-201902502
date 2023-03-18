@@ -6,9 +6,9 @@ package Main;
  */
 public class Transicion {
 
-    public String initialState;
-    public String transition;
-    public String finalState;
+    public String initialState; //Estado inicial del nodo
+    public String transition; //Transicion en la que se encuentra
+    public String finalState; //Estado hacia donde se dirige el nodo
 
     public Transicion(String initialState, String transition, String finalState) {
         this.initialState = initialState;

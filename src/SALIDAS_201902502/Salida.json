@@ -1,17 +1,22 @@
 [
 {
-"Valor": "@yAsaLioComPI_1",
-"ExpresionRegular": "igusername",
+"Valor": "hola_soy_id_1",
+"ExpresionRegular": "identificador",
 "Resultado": "aprobado"
 },
 {
-"Valor": "15/03/2021",
-"ExpresionRegular": "fecha",
+"Valor": "HoLA",
+"ExpresionRegular": "identificador",
 "Resultado": "aprobado"
 },
 {
-"Valor": "hola#Mundo",
-"ExpresionRegular": "erAzar",
+"Valor": "301.59",
+"ExpresionRegular": "decimales",
+"Resultado": "aprobado"
+},
+{
+"Valor": "1200.31",
+"ExpresionRegular": "decimales",
 "Resultado": "aprobado"
 }
 ]
